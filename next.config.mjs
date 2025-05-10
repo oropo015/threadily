@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -10,7 +9,12 @@ const nextConfig = {
   },
   images: {
     unoptimized: false, // Enable image optimization
-    domains: ['v0.blob.com'], // Add domains for external images
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'v0.blob.com',
+      },
+    ],
     formats: ['image/avif', 'image/webp'], // Enable modern image formats
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048], // Responsive image sizes
     imageSizes: [16, 32, 48, 64, 96, 128, 256], // Icon sizes

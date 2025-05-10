@@ -80,7 +80,15 @@ export function Header() {
             aria-label="threadily home"
           >
             <div className="relative h-8 w-8">
-              <Image src="/logo.png" alt="threadily logo" width={32} height={32} className="object-contain" priority />
+              <Image 
+                src="/logo.png" 
+                alt="threadily logo" 
+                width={32} 
+                height={32} 
+                className="object-contain" 
+                priority={true}
+                quality={100}
+              />
             </div>
             <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
               threadily
@@ -200,69 +208,69 @@ export function Header() {
       </div>
 
       {/* Mobile menu dropdown */}
-      {mobileMenuOpen && (
-        <div
-          id="mobile-menu"
-          className="md:hidden py-3 px-4 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 animate-in fade-in-50"
-        >
-          <div className="space-y-3">
-            {/* Only show platform selector if not on landing page */}
-            {!isLandingPage && (
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium">{t("header", "platform")}</span>
-                <Select value={platform} onValueChange={(value: PlatformKey) => setPlatform(value)}>
-                  <SelectTrigger className="w-[140px] h-9 min-w-[140px] min-h-[44px]" aria-label="Select platform">
-                    <SelectValue placeholder={t("header", "platform")} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.entries(PLATFORMS).map(([key, value]) => (
-                      <SelectItem key={key} value={key} className="flex items-center">
-                        <div className="flex items-center">
-                          {getPlatformIcon(key as PlatformKey)}
-                          {t("platforms", key)}
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            )}
-
+      <div
+        id="mobile-menu"
+        className={`md:hidden py-3 px-4 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 fixed top-[60px] left-0 right-0 z-50 shadow-lg transition-all duration-200 ${
+          mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
+        }`}
+      >
+        <div className="space-y-3">
+          {/* Only show platform selector if not on landing page */}
+          {!isLandingPage && (
             <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">{t("header", "language")}</span>
-              <Select value={language} onValueChange={setLanguage}>
-                <SelectTrigger className="w-[100px] h-9 min-w-[100px] min-h-[44px]" aria-label="Select language">
-                  <SelectValue placeholder={t("header", "language")} />
+              <span className="text-sm font-medium">{t("header", "platform")}</span>
+              <Select value={platform} onValueChange={(value: PlatformKey) => setPlatform(value)}>
+                <SelectTrigger className="w-[140px] h-9 min-w-[140px] min-h-[44px]" aria-label="Select platform">
+                  <SelectValue placeholder={t("header", "platform")} />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="en">English</SelectItem>
-                  <SelectItem value="es">Español</SelectItem>
-                  <SelectItem value="fr">Français</SelectItem>
-                  <SelectItem value="de">Deutsch</SelectItem>
-                  <SelectItem value="ja">日本語</SelectItem>
+                <SelectContent position="popper" sideOffset={5}>
+                  {Object.entries(PLATFORMS).map(([key, value]) => (
+                    <SelectItem key={key} value={key} className="flex items-center">
+                      <div className="flex items-center">
+                        {getPlatformIcon(key as PlatformKey)}
+                        {t("platforms", key)}
+                      </div>
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
+          )}
 
-            <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">Theme</span>
-              <div className="flex items-center gap-2">
-                {/* Keep only the ModeToggle component in mobile menu */}
-                <ModeToggle />
-              </div>
-            </div>
-
-            {/* Add a "Try App" button on landing page */}
-            {isLandingPage && (
-              <div className="pt-2">
-                <Link href="/app" className="w-full">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white min-h-[44px]">Try App</Button>
-                </Link>
-              </div>
-            )}
+          <div className="flex justify-between items-center">
+            <span className="text-sm font-medium">{t("header", "language")}</span>
+            <Select value={language} onValueChange={setLanguage}>
+              <SelectTrigger className="w-[100px] h-9 min-w-[100px] min-h-[44px]" aria-label="Select language">
+                <SelectValue placeholder={t("header", "language")} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="es">Español</SelectItem>
+                <SelectItem value="fr">Français</SelectItem>
+                <SelectItem value="de">Deutsch</SelectItem>
+                <SelectItem value="ja">日本語</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
+
+          <div className="flex justify-between items-center">
+            <span className="text-sm font-medium">Theme</span>
+            <div className="flex items-center gap-2">
+              {/* Keep only the ModeToggle component in mobile menu */}
+              <ModeToggle />
+            </div>
+          </div>
+
+          {/* Add a "Try App" button on landing page */}
+          {isLandingPage && (
+            <div className="pt-2">
+              <Link href="/app" className="w-full">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white min-h-[44px]">Try App</Button>
+              </Link>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </header>
   )
 }

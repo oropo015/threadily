@@ -1,0 +1,129 @@
+{
+  "api": {
+    "routes": {
+      "pattern": "kebab-case",
+      "examples": [
+        "/api/thread/generate",
+        "/api/media/upload",
+        "/api/content/optimize"
+      ],
+      "rules": [
+        "Use descriptive, resource-based naming",
+        "Follow RESTful conventions",
+        "Group related endpoints under common prefixes"
+      ]
+    },
+    "responses": {
+      "success": {
+        "structure": {
+          "data": "Response payload",
+          "status": "HTTP status code",
+          "message": "Optional success message"
+        },
+        "example": {
+          "data": {
+            "threadId": "123",
+            "content": "..."
+          },
+          "status": 200,
+          "message": "Thread generated successfully"
+        }
+      },
+      "error": {
+        "structure": {
+          "error": "Error message",
+          "status": "HTTP status code",
+          "details": "Optional error details"
+        },
+        "example": {
+          "error": "Invalid input",
+          "status": 400,
+          "details": {
+            "field": "content",
+            "message": "Content exceeds maximum length"
+          }
+        }
+      }
+    }
+  },
+  "dataHandling": {
+    "validation": {
+      "schema": {
+        "pattern": "zod",
+        "examples": [
+          "threadSchema",
+          "mediaSchema",
+          "userSchema"
+        ],
+        "rules": [
+          "Use Zod for schema validation",
+          "Define schemas in separate files",
+          "Export type inference from schemas"
+        ]
+      }
+    },
+    "stateManagement": {
+      "context": {
+        "pattern": "React Context",
+        "examples": [
+          "ThreadContext",
+          "MediaContext",
+          "UserContext"
+        ],
+        "rules": [
+          "Use Context for global state",
+          "Implement proper TypeScript types",
+          "Include loading and error states"
+        ]
+      },
+      "local": {
+        "pattern": "React Hooks",
+        "examples": [
+          "useState",
+          "useReducer",
+          "useCallback"
+        ],
+        "rules": [
+          "Use hooks for component-level state",
+          "Memoize callbacks and values",
+          "Handle cleanup properly"
+        ]
+      }
+    }
+  },
+  "errorHandling": {
+    "client": {
+      "pattern": "try-catch",
+      "rules": [
+        "Use try-catch blocks for async operations",
+        "Implement proper error boundaries",
+        "Show user-friendly error messages"
+      ]
+    },
+    "server": {
+      "pattern": "error-middleware",
+      "rules": [
+        "Implement global error handling",
+        "Log errors appropriately",
+        "Return consistent error responses"
+      ]
+    }
+  },
+  "performance": {
+    "dataFetching": {
+      "pattern": "SWR/React Query",
+      "rules": [
+        "Implement proper caching",
+        "Handle loading states",
+        "Implement error retry logic"
+      ]
+    },
+    "optimization": {
+      "rules": [
+        "Implement proper memoization",
+        "Use code splitting",
+        "Optimize bundle size"
+      ]
+    }
+  }
+} 

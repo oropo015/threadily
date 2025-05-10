@@ -1,0 +1,84 @@
+{
+  "name": "Threadily",
+  "version": "1.0.0",
+  "description": "Social media content creation and optimization tool",
+  "rules": {
+    "naming": {
+      "components": {
+        "pattern": "kebab-case",
+        "examples": ["thread-generator.tsx", "media-uploader.tsx"]
+      },
+      "hooks": {
+        "pattern": "camelCase",
+        "prefix": "use",
+        "examples": ["useThreadGenerator", "useMediaUploader"]
+      },
+      "contexts": {
+        "pattern": "PascalCase",
+        "suffix": "Context",
+        "examples": ["ThreadContext", "MediaContext"]
+      }
+    },
+    "folderStructure": {
+      "app": {
+        "description": "Next.js app directory containing pages and layouts",
+        "allowedFiles": ["*.tsx", "*.ts", "*.css"]
+      },
+      "components": {
+        "description": "React components organized by feature",
+        "allowedFiles": ["*.tsx"],
+        "subdirectories": {
+          "ui": "Reusable UI components",
+          "thread-generator": "Thread generation related components",
+          "thread-enhancer": "Thread enhancement related components"
+        }
+      },
+      "contexts": {
+        "description": "React context providers",
+        "allowedFiles": ["*.tsx"]
+      },
+      "hooks": {
+        "description": "Custom React hooks",
+        "allowedFiles": ["*.ts"]
+      },
+      "lib": {
+        "description": "Utility functions and shared code",
+        "allowedFiles": ["*.ts"]
+      }
+    },
+    "codeStyle": {
+      "typescript": {
+        "strict": true,
+        "preferConst": true,
+        "noImplicitAny": true
+      },
+      "react": {
+        "functionalComponents": true,
+        "hooks": {
+          "naming": "use[Feature]",
+          "dependencies": "explicit"
+        }
+      },
+      "tailwind": {
+        "classOrder": "grouped",
+        "preferComponents": true
+      }
+    },
+    "bestPractices": {
+      "performance": {
+        "imageOptimization": true,
+        "lazyLoading": true,
+        "codeSplitting": true
+      },
+      "accessibility": {
+        "ariaLabels": "required",
+        "keyboardNavigation": true,
+        "colorContrast": true
+      },
+      "errorHandling": {
+        "tryCatch": "required",
+        "errorBoundaries": "required"
+      }
+    }
+  }
+} 

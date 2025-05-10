@@ -1,0 +1,121 @@
+{
+  "fileNaming": {
+    "components": {
+      "pattern": "kebab-case",
+      "examples": [
+        "thread-generator.tsx",
+        "media-uploader.tsx",
+        "character-counter.tsx"
+      ],
+      "rules": [
+        "Use descriptive names that indicate component purpose",
+        "Separate words with hyphens",
+        "Use .tsx extension for React components"
+      ]
+    },
+    "hooks": {
+      "pattern": "camelCase",
+      "prefix": "use",
+      "examples": [
+        "useThreadGenerator",
+        "useMediaUploader",
+        "useCharacterCount"
+      ],
+      "rules": [
+        "Always prefix with 'use'",
+        "Use camelCase",
+        "Use .ts extension"
+      ]
+    },
+    "contexts": {
+      "pattern": "PascalCase",
+      "suffix": "Context",
+      "examples": [
+        "ThreadContext",
+        "MediaContext",
+        "ThemeContext"
+      ],
+      "rules": [
+        "Use PascalCase",
+        "Always suffix with 'Context'",
+        "Use .tsx extension"
+      ]
+    },
+    "utilities": {
+      "pattern": "camelCase",
+      "examples": [
+        "formatDate.ts",
+        "validateInput.ts",
+        "optimizeImage.ts"
+      ],
+      "rules": [
+        "Use camelCase",
+        "Use .ts extension",
+        "Use descriptive names"
+      ]
+    }
+  },
+  "variableNaming": {
+    "react": {
+      "state": {
+        "pattern": "camelCase",
+        "examples": [
+          "threadContent",
+          "mediaFiles",
+          "isLoading"
+        ]
+      },
+      "props": {
+        "pattern": "camelCase",
+        "examples": [
+          "onSubmit",
+          "initialValue",
+          "maxLength"
+        ]
+      },
+      "refs": {
+        "pattern": "camelCase",
+        "suffix": "Ref",
+        "examples": [
+          "inputRef",
+          "formRef",
+          "containerRef"
+        ]
+      }
+    },
+    "types": {
+      "interfaces": {
+        "pattern": "PascalCase",
+        "prefix": "I",
+        "examples": [
+          "IThreadPost",
+          "IMediaFile",
+          "IUserSettings"
+        ]
+      },
+      "types": {
+        "pattern": "PascalCase",
+        "examples": [
+          "ThreadStatus",
+          "MediaType",
+          "PlatformType"
+        ]
+      }
+    }
+  },
+  "css": {
+    "classNames": {
+      "pattern": "kebab-case",
+      "examples": [
+        "thread-container",
+        "media-preview",
+        "character-limit"
+      ],
+      "rules": [
+        "Use descriptive names",
+        "Separate words with hyphens",
+        "Follow BEM-like structure when appropriate"
+      ]
+    }
+  }
+} 
