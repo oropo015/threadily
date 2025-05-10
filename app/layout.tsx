@@ -10,7 +10,6 @@ import { FontOptimizer } from "@/components/font-optimizer"
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  preload: true,
   variable: "--font-inter",
 })
 
@@ -69,12 +68,8 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
         <meta name="theme-color" content="#4169E1" />
         <link rel="canonical" href="https://threadily.com" />
-
-        {/* DNS prefetch for external resources */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <FontOptimizer />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LanguageProvider>{children}</LanguageProvider>

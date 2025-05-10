@@ -38,6 +38,7 @@ export function LandingPage() {
                   src="/social-media-thread-app.png"
                   alt="threadily app interface showing thread creation"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                   priority
                 />
