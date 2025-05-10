@@ -511,10 +511,10 @@ export const clearAll = (
 
   // Clear sessionStorage
   if (typeof window !== "undefined") {
-    sessionStorage.removeItem("threadily-content")
-    sessionStorage.removeItem("threadily-threads")
-    sessionStorage.removeItem("threadily-find")
-    sessionStorage.removeItem("threadily-replace")
+    sessionStorage.removeItem("threadify-content")
+    sessionStorage.removeItem("threadify-threads")
+    sessionStorage.removeItem("threadify-find")
+    sessionStorage.removeItem("threadify-replace")
   }
 
   toast({

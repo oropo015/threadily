@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://threadily.com"
+  const baseUrl = "https://threadify.pro"
   const languages = ["en", "es", "fr", "de", "ja"]
 
   const routes = [

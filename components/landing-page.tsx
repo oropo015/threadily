@@ -36,7 +36,7 @@ export function LandingPage() {
               <div className="relative w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-xl">
                 <Image
                   src="/social-media-thread-app.png"
-                  alt="threadily app interface showing thread creation"
+                  alt="threadify app interface showing thread creation"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
@@ -165,7 +165,7 @@ export function LandingPage() {
       <section className="py-16 bg-blue-50 dark:bg-blue-900/20">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose threadily?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose threadify?</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Save time and create more engaging content with our specialized tools
             </p>
@@ -225,7 +225,7 @@ export function LandingPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Users Say</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Join thousands of content creators who love using threadily
+              Join thousands of content creators who love using threadify
             </p>
           </div>
 
@@ -242,7 +242,7 @@ export function LandingPage() {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
-                "threadily has completely transformed how I create Twitter threads. What used to take me an hour now
+                "threadify has completely transformed how I create Twitter threads. What used to take me an hour now
                 takes minutes!"
               </p>
             </div>
@@ -276,7 +276,7 @@ export function LandingPage() {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
-                "I use threadily daily for my clients' social media content. The AI enhancement feature is a
+                "I use threadify daily for my clients' social media content. The AI enhancement feature is a
                 game-changer for engagement."
               </p>
             </div>
@@ -289,7 +289,7 @@ export function LandingPage() {
         <div className="container mx-auto max-w-6xl px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Create Better Social Media Threads?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Join thousands of content creators who use threadily to save time and create more engaging content.
+            Join thousands of content creators who use threadify to save time and create more engaging content.
           </p>
           <Button
             size="lg"
@@ -310,7 +310,7 @@ export function LandingPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            name: "threadily",
+            name: "threadify",
             applicationCategory: "SocialNetworkingApplication",
             operatingSystem: "Web",
             offers: {

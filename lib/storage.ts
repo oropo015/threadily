@@ -3,7 +3,7 @@
  */
 
 // Type for storage keys
-export type StorageKey = 'threadily-platform' | 'threadily-content' | 'threadily-media-items'
+export type StorageKey = 'threadify-platform' | 'threadify-content' | 'threadify-media-items'
 
 /**
  * Safely get an item from storage
@@ -62,18 +62,18 @@ export function isStorageAvailable(type: 'localStorage' | 'sessionStorage'): boo
 }
 
 /**
- * Clear all threadily-related items from storage
+ * Clear all threadify-related items from storage
  */
-export function clearThreadilyStorage(storage: Storage = localStorage): boolean {
+export function clearThreadifyStorage(storage: Storage = localStorage): boolean {
   try {
     Object.keys(storage).forEach(key => {
-      if (key.startsWith('threadily-')) {
+      if (key.startsWith('threadify-')) {
         storage.removeItem(key)
       }
     })
     return true
   } catch (error) {
-    console.error('Error clearing threadily storage:', error)
+    console.error('Error clearing threadify storage:', error)
     return false
   }
 } 

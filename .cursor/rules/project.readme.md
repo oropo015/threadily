@@ -1,7 +1,7 @@
-# Threadily
+# Threadify
 
 ## Project Overview
-Threadily is a sophisticated social media content creation and optimization tool built with Next.js. It helps users create, enhance, and optimize content for various social media platforms, with a particular focus on thread-based content.
+Threadify is a sophisticated social media content creation and optimization tool built with Next.js. It helps users create, enhance, and optimize content for various social media platforms, with a particular focus on thread-based content.
 
 ## Tech Stack
 - **Framework**: Next.js 15.2.4
@@ -39,7 +39,7 @@ Threadily is a sophisticated social media content creation and optimization tool
 
 ## Project Structure
 ```
-threadily/
+threadify/
 ├── app/                    # Next.js app directory
 ├── components/            # React components
 │   ├── ui/               # Reusable UI components

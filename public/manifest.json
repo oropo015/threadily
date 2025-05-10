@@ -1,6 +1,6 @@
 {
-  "name": "threadily",
-  "short_name": "threadily",
+  "name": "threadify",
+  "short_name": "threadify",
   "description": "Format your text for social media threads",
   "start_url": "/",
   "display": "standalone",

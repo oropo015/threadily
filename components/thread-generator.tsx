@@ -118,20 +118,20 @@ export function ThreadGenerator() {
     try {
       // Load platform preference from localStorage
       if (typeof window !== "undefined") {
-        const savedPlatform = localStorage.getItem("threadily-platform") as PlatformKey
+        const savedPlatform = localStorage.getItem("threadify-platform") as PlatformKey
         if (savedPlatform && Object.keys(PLATFORMS).includes(savedPlatform)) {
           setPlatform(savedPlatform)
           setMaxChars(PLATFORMS[savedPlatform].maxChars)
         }
 
         // Load saved content from sessionStorage
-        const savedContent = sessionStorage.getItem("threadily-content")
+        const savedContent = sessionStorage.getItem("threadify-content")
         if (savedContent) {
           setText(savedContent)
         }
 
         // Load media items from sessionStorage
-        const savedMediaItems = sessionStorage.getItem("threadily-media-items")
+        const savedMediaItems = sessionStorage.getItem("threadify-media-items")
         if (savedMediaItems) {
           try {
             const parsedMediaItems = JSON.parse(savedMediaItems) as MediaItem[]
@@ -250,7 +250,7 @@ export function ThreadGenerator() {
     // Save to sessionStorage if available
     if (typeof window !== "undefined") {
       try {
-        sessionStorage.setItem("threadily-content", text)
+        sessionStorage.setItem("threadify-content", text)
 
         // Only update saved state if component is still mounted
         if (isMountedRef.current) {
@@ -296,7 +296,7 @@ export function ThreadGenerator() {
   useEffect(() => {
     if (typeof window !== "undefined" && isMountedRef.current) {
       try {
-        sessionStorage.setItem("threadily-threads", JSON.stringify(threadPosts))
+        sessionStorage.setItem("threadify-threads", JSON.stringify(threadPosts))
       } catch (error) {
         console.error("Error saving thread posts to session storage:", error)
       }
@@ -307,10 +307,10 @@ export function ThreadGenerator() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
-        const savedText = sessionStorage.getItem("threadily-content")
+        const savedText = sessionStorage.getItem("threadify-content")
         if (savedText) setText(savedText)
 
-        const savedThreads = sessionStorage.getItem("threadily-threads")
+        const savedThreads = sessionStorage.getItem("threadify-threads")
         if (savedThreads) {
           try {
             setThreadPosts(JSON.parse(savedThreads))
@@ -319,10 +319,10 @@ export function ThreadGenerator() {
           }
         }
 
-        const savedFind = sessionStorage.getItem("threadily-find")
+        const savedFind = sessionStorage.getItem("threadify-find")
         if (savedFind) setFindText(savedFind)
 
-        const savedReplace = sessionStorage.getItem("threadily-replace")
+        const savedReplace = sessionStorage.getItem("threadify-replace")
         if (savedReplace) setReplaceText(savedReplace)
       } catch (error) {
         console.error("Error loading from session storage:", error)
@@ -922,10 +922,10 @@ export function ThreadGenerator() {
     // Clear sessionStorage
     if (typeof window !== "undefined") {
       try {
-        sessionStorage.removeItem("threadily-content")
-        sessionStorage.removeItem("threadily-threads")
-        sessionStorage.removeItem("threadily-find")
-        sessionStorage.removeItem("threadily-replace")
+        sessionStorage.removeItem("threadify-content")
+        sessionStorage.removeItem("threadify-threads")
+        sessionStorage.removeItem("threadify-find")
+        sessionStorage.removeItem("threadify-replace")
       } catch (error) {
         console.error("Error clearing session storage:", error)
       }
@@ -1188,7 +1188,7 @@ export function ThreadGenerator() {
                           setFindText(e.target.value)
                           if (typeof window !== "undefined") {
                             try {
-                              sessionStorage.setItem("threadily-find", e.target.value)
+                              sessionStorage.setItem("threadify-find", e.target.value)
                             } catch (error) {
                               console.error("Error saving find text to session storage:", error)
                             }
@@ -1206,7 +1206,7 @@ export function ThreadGenerator() {
                           setReplaceText(e.target.value)
                           if (typeof window !== "undefined") {
                             try {
-                              sessionStorage.setItem("threadily-replace", e.target.value)
+                              sessionStorage.setItem("threadify-replace", e.target.value)
                             } catch (error) {
                               console.error("Error saving replace text to session storage:", error)
                             }

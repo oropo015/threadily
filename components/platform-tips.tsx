@@ -13,7 +13,7 @@ export function PlatformTips() {
   useEffect(() => {
     // Load platform preference from localStorage on initial render
     if (typeof window !== "undefined") {
-      const savedPlatform = localStorage.getItem("threadily-platform") as PlatformKey
+      const savedPlatform = localStorage.getItem("threadify-platform") as PlatformKey
       if (savedPlatform && Object.keys(PLATFORMS).includes(savedPlatform)) {
         setPlatform(savedPlatform)
       }

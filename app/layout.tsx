@@ -16,34 +16,34 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "threadily - Create Perfect Social Media Threads | Thread Generator Tool",
+  title: "threadify - Create Perfect Social Media Threads | Thread Generator Tool",
   description:
     "Format your long text into perfectly-sized posts for Twitter, Instagram, and LinkedIn threads. Split text, add hashtags, analyze tone, and optimize your social media content.",
-  metadataBase: new URL("https://threadily.com"),
+  metadataBase: new URL("https://threadify.pro"),
   keywords:
     "social media threads, thread generator, twitter threads, instagram threads, linkedin posts, content creation, social media tool, text splitter",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://threadily.com",
-    title: "threadily - Create Perfect Social Media Threads",
+    url: "https://threadify.pro",
+    title: "threadify - Create Perfect Social Media Threads",
     description:
       "Format your long text into perfectly-sized posts for social media threads. Split text, add hashtags, analyze tone, and optimize your content.",
-    siteName: "threadily",
+    siteName: "threadify",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "threadily - Social Media Thread Generator",
+        alt: "threadify - Social Media Thread Generator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "threadily - Create Perfect Social Media Threads",
+    title: "threadify - Create Perfect Social Media Threads",
     description: "Format your long text into perfectly-sized posts for social media threads",
-    creator: "@threadilyapp",
+    creator: "@threadifyapp",
     images: ["/twitter-image.png"],
   },
   icons: {
@@ -69,7 +69,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
         <meta name="theme-color" content="#4169E1" />
-        <link rel="canonical" href="https://threadily.com" />
+        <link rel="canonical" href="https://threadify.pro" />
       </head>
       <body className={inter.className} suppressHydrationWarning>
         <FontOptimizer />

@@ -6,7 +6,7 @@ import { createContext, useContext, useState, useCallback, useEffect, type React
 const translations = {
   en: {
     metadata: {
-      title: "threadily - Format your text for social media threads",
+      title: "threadify - Format your text for social media threads",
       description: "Split your long text into perfectly-sized posts for social media threads",
     },
     home: {
@@ -59,11 +59,11 @@ const translations = {
       errorDescription: "There was an error generating your thread. Please try again.",
     },
     footer: {
-      copyright: "© {year} threadily. All rights reserved.",
+      copyright: "© {year} threadify. All rights reserved.",
       buyMeCoffee: "Buy me a coffee",
       toolDescription: "A tool to format posts for multiple social platforms",
       privacyNotice:
-        "threadily processes all text locally in your browser. We don't store or transmit your content to any server.",
+        "threadify processes all text locally in your browser. We don't store or transmit your content to any server.",
     },
     platforms: {
       twitter: "X (Twitter)",
@@ -111,7 +111,7 @@ const translations = {
   },
   es: {
     metadata: {
-      title: "threadily - Formatea tu texto para hilos de redes sociales",
+      title: "threadify - Formatea tu texto para hilos de redes sociales",
       description: "Divide tu texto largo en publicaciones perfectamente dimensionadas para hilos de redes sociales",
     },
     home: {
@@ -164,11 +164,11 @@ const translations = {
       errorDescription: "Hubo un error al generar tu hilo. Por favor, inténtalo de nuevo.",
     },
     footer: {
-      copyright: "© {year} threadily. Todos los derechos reservados.",
+      copyright: "© {year} threadify. Todos los derechos reservados.",
       buyMeCoffee: "Invítame a un café",
       toolDescription: "Una herramienta para formatear publicaciones para múltiples plataformas sociales",
       privacyNotice:
-        "threadily procesa todo el texto localmente en tu navegador. No almacenamos ni transmitimos tu contenido a ningún servidor.",
+        "threadify procesa todo el texto localmente en tu navegador. No almacenamos ni transmitimos tu contenido a ningún servidor.",
     },
     platforms: {
       twitter: "X (Twitter)",
@@ -213,7 +213,7 @@ const translations = {
   },
   fr: {
     metadata: {
-      title: "threadily - Formatez votre texte pour les fils de médias sociaux",
+      title: "threadify - Formatez votre texte pour les fils de médias sociaux",
       description:
         "Divisez votre long texte en publications parfaitement dimensionnées pour les fils de médias sociaux",
     },
@@ -268,11 +268,11 @@ const translations = {
       errorDescription: "Une erreur s'est produite lors de la génération de votre fil. Veuillez réessayer.",
     },
     footer: {
-      copyright: "© {year} threadily. Tous droits réservés.",
+      copyright: "© {year} threadify. Tous droits réservés.",
       buyMeCoffee: "Offrez-moi un café",
       toolDescription: "Un outil pour formater des publications pour plusieurs plateformes sociales",
       privacyNotice:
-        "threadily traite tout le texte localement dans votre navigateur. Nous ne stockons ni ne transmettons votre contenu à aucun serveur.",
+        "threadify traite tout le texte localement dans votre navigateur. Nous ne stockons ni ne transmettons votre contenu à aucun serveur.",
     },
     platforms: {
       twitter: "X (Twitter)",
@@ -288,7 +288,7 @@ const translations = {
   },
   de: {
     metadata: {
-      title: "threadily - Formatieren Sie Ihren Text für Social-Media-Threads",
+      title: "threadify - Formatieren Sie Ihren Text für Social-Media-Threads",
       description: "Teilen Sie Ihren langen Text in perfekt dimensionierte Beiträge für Social-Media-Threads",
     },
     home: {
@@ -341,11 +341,11 @@ const translations = {
       errorDescription: "Bei der Generierung Ihres Threads ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
     },
     footer: {
-      copyright: "© {year} threadily. Alle Rechte vorbehalten.",
+      copyright: "© {year} threadify. Alle Rechte vorbehalten.",
       buyMeCoffee: "Spendieren Sie mir einen Kaffee",
       toolDescription: "Ein Tool zum Formatieren von Beiträgen für mehrere soziale Plattformen",
       privacyNotice:
-        "threadily verarbeitet den gesamten Text lokal in Ihrem Browser. Wir speichern oder übertragen Ihre Inhalte nicht an einen Server.",
+        "threadify verarbeitet den gesamten Text lokal in Ihrem Browser. Wir speichern oder übertragen Ihre Inhalte nicht an einen Server.",
     },
     platforms: {
       twitter: "X (Twitter)",
@@ -354,14 +354,14 @@ const translations = {
       mastodon: "Mastodon",
       platformSpecificTips: "Plattformspezifische Tipps",
       twitterTip: "Halten Sie es kurz. Verwenden Sie Hashtags sparsam.",
-      threadsTip: "Ähnlich wie Twitter, aber mit mehr Platz. Ideal für längere Gedanken.",
+      threadsTip: "Ähnlich wie Twitter, aber mit mehr Platz. Ideal für längeren Gedanken.",
       redditTip: "Verwenden Sie die Markdown-Formatierung. Ideal für detaillierte Erklärungen.",
       mastodonTip: "Ähnlich wie Twitter. Berücksichtigen Sie die Kultur Ihrer Instanz.",
     },
   },
   ja: {
     metadata: {
-      title: "threadily - ソーシャルメディアスレッド用のテキストフォーマット",
+      title: "threadify - ソーシャルメディアスレッド用のテキストフォーマット",
       description: "長いテキストをソーシャルメディアスレッド用の完璧なサイズの投稿に分割",
     },
     home: {
@@ -414,10 +414,10 @@ const translations = {
       errorDescription: "スレッドの生成中にエラーが発生しました。もう一度お試しください。",
     },
     footer: {
-      copyright: "© {year} threadily. All rights reserved.",
+      copyright: "© {year} threadify. All rights reserved.",
       toolDescription: "複数のソーシャルプラットフォーム用の投稿をフォーマットするツール",
       privacyNotice:
-        "threadilyはすべてのテキストをブラウザ内でローカルに処理します。あなたのコンテンツをサーバーに保存したり送信したりすることはありません。",
+        "threadifyはすべてのテキストをブラウザ内でローカルに処理します。あなたのコンテンツをサーバーに保存したり送信したりすることはありません。",
     },
     platforms: {
       twitter: "X (Twitter)",
@@ -426,7 +426,7 @@ const translations = {
       mastodon: "Mastodon",
       platformSpecificTips: "プラットフォーム固有のヒント",
       twitterTip: "簡潔に保ちます。ハッシュタグは控えめに使用してください。",
-      threadsTip: "Twitterに似ていますが、スペースが広くなっています。より長���考えに最適です。",
+      threadsTip: "Twitterに似ていますが、スペースが広くなっています。より長い考えに最適です。",
       redditTip: "Markdown形式を使用してください。詳細な説明に最適です。",
       mastodonTip: "Twitterに似ています。インスタンスの文化を考慮してください。",
     },
@@ -452,7 +452,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Load language preference from localStorage on initial render
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedLanguage = localStorage.getItem("threadily-language")
+      const savedLanguage = localStorage.getItem("threadify-language")
       if (savedLanguage && Object.keys(translations).includes(savedLanguage)) {
         setLanguage(savedLanguage)
       }
@@ -462,7 +462,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Save language preference to localStorage whenever it changes
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("threadily-language", language)
+      localStorage.setItem("threadify-language", language)
     }
   }, [language])
 

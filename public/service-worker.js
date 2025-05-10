@@ -1,6 +1,6 @@
 // Service worker version
 const CACHE_VERSION = "v1"
-const CACHE_NAME = `threadily-cache-${CACHE_VERSION}`
+const CACHE_NAME = `threadify-cache-${CACHE_VERSION}`
 
 // Assets to cache on install
 const PRECACHE_ASSETS = [
@@ -37,7 +37,7 @@ self.addEventListener("activate", (event) => {
         return Promise.all(
           cacheNames
             .filter((cacheName) => {
-              return cacheName.startsWith("threadily-cache-") && cacheName !== CACHE_NAME
+              return cacheName.startsWith("threadify-cache-") && cacheName !== CACHE_NAME
             })
             .map((cacheName) => {
               return caches.delete(cacheName)

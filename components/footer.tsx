@@ -64,7 +64,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between mb-6">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
             <div className="relative h-6 w-6">
-              <Image src="/logo.png" alt="threadily" width={24} height={24} className="object-contain" />
+              <Image src="/logo.png" alt="threadify" width={24} height={24} className="object-contain" />
             </div>
             <span className="text-gray-700 dark:text-gray-300 font-medium">
               {t("footer", "copyright", { year: currentYear })}
@@ -90,7 +90,7 @@ export function Footer() {
             <div className="flex items-center gap-2 ml-2">
               <Button variant="ghost" size="icon" asChild className="min-w-[36px] min-h-[36px]">
                 <Link
-                  href="https://x.com/threadilyapp"
+                  href="https://x.com/threadifyapp"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="X (Twitter)"
@@ -101,7 +101,7 @@ export function Footer() {
               </Button>
               <Button variant="ghost" size="icon" asChild className="min-w-[36px] min-h-[36px]">
                 <Link
-                  href="https://www.threads.net/@threadilyapp"
+                  href="https://www.threads.net/@threadifyapp"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Threads"
@@ -112,7 +112,7 @@ export function Footer() {
               </Button>
               <Button variant="ghost" size="icon" asChild className="min-w-[36px] min-h-[36px]">
                 <Link
-                  href="https://www.reddit.com/user/Threadilyapp"
+                  href="https://www.reddit.com/user/Threadifyapp"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Reddit"
@@ -123,7 +123,7 @@ export function Footer() {
               </Button>
               <Button variant="ghost" size="icon" asChild className="min-w-[36px] min-h-[36px]">
                 <Link
-                  href="https://mastodon.social/@threadilyapp"
+                  href="https://mastodon.social/@threadifyapp"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Mastodon"
@@ -142,8 +142,8 @@ export function Footer() {
           <p>{t("footer", "toolDescription")}</p>
           <p className="mt-2">{t("footer", "privacyNotice")}</p>
           <p className="mt-2">
-            <Link href="https://threadily.com" className="text-blue-500 hover:underline">
-              threadily.com
+            <Link href="https://threadify.pro" className="text-blue-500 hover:underline">
+              threadify.pro
             </Link>
           </p>
         </div>

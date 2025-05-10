@@ -51,7 +51,7 @@ export function OptimizedLandingPage() {
                 {isClient && (
                   <OptimizedImage
                     src="/social-media-thread-app.png"
-                    alt="threadily app interface showing thread creation"
+                    alt="threadify app interface showing thread creation"
                     fill
                     className="object-cover"
                     priority={true}

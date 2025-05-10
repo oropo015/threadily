@@ -33,7 +33,7 @@ export function Header() {
   // Load platform preference from localStorage on initial render
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedPlatform = localStorage.getItem("threadily-platform") as PlatformKey
+      const savedPlatform = localStorage.getItem("threadify-platform") as PlatformKey
       if (savedPlatform && Object.keys(PLATFORMS).includes(savedPlatform)) {
         setPlatform(savedPlatform)
         // Dispatch a custom event to notify other components
@@ -45,7 +45,7 @@ export function Header() {
   // Save platform preference to localStorage whenever it changes
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("threadily-platform", platform)
+      localStorage.setItem("threadify-platform", platform)
       // Dispatch a custom event to notify other components
       window.dispatchEvent(new CustomEvent("platformChange", { detail: platform }))
     }
@@ -77,12 +77,12 @@ export function Header() {
           <Link
             href="/"
             className="flex items-center gap-2 transition-transform hover:scale-105"
-            aria-label="threadily home"
+            aria-label="threadify home"
           >
             <div className="relative h-8 w-8">
               <Image 
                 src="/logo.png" 
-                alt="threadily logo" 
+                alt="threadify logo" 
                 width={32} 
                 height={32} 
                 className="object-contain" 
@@ -91,7 +91,7 @@ export function Header() {
               />
             </div>
             <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
-              threadily
+              threadify
             </h1>
           </Link>
         </div>
@@ -174,7 +174,7 @@ export function Header() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <a
-                  href="https://www.buymeacoffee.com/threadily"
+                  href="https://www.buymeacoffee.com/threadify"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-9 w-9 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground mr-2"
