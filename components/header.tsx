@@ -223,7 +223,7 @@ export function Header() {
                 <SelectTrigger className="w-[140px] h-9 min-w-[140px] min-h-[44px]" aria-label="Select platform">
                   <SelectValue placeholder={t("header", "platform")} />
                 </SelectTrigger>
-                <SelectContent position="popper" sideOffset={5}>
+                <SelectContent position="popper" sideOffset={5} className="w-[140px]">
                   {Object.entries(PLATFORMS).map(([key, value]) => (
                     <SelectItem key={key} value={key} className="flex items-center">
                       <div className="flex items-center">
@@ -243,7 +243,7 @@ export function Header() {
               <SelectTrigger className="w-[100px] h-9 min-w-[100px] min-h-[44px]" aria-label="Select language">
                 <SelectValue placeholder={t("header", "language")} />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent position="popper" sideOffset={5} className="w-[100px]">
                 <SelectItem value="en">English</SelectItem>
                 <SelectItem value="es">Español</SelectItem>
                 <SelectItem value="fr">Français</SelectItem>
@@ -253,21 +253,13 @@ export function Header() {
             </Select>
           </div>
 
-          <div className="flex justify-between items-center">
-            <span className="text-sm font-medium">Theme</span>
-            <div className="flex items-center gap-2">
-              {/* Keep only the ModeToggle component in mobile menu */}
-              <ModeToggle />
-            </div>
-          </div>
-
-          {/* Add a "Try App" button on landing page */}
+          {/* Add Try App button for mobile if on landing page */}
           {isLandingPage && (
-            <div className="pt-2">
-              <Link href="/app" className="w-full">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white min-h-[44px]">Try App</Button>
-              </Link>
-            </div>
+            <Link href="/app" className="w-full">
+              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white min-h-[44px]">
+                Try App
+              </Button>
+            </Link>
           )}
         </div>
       </div>

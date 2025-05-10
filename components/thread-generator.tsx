@@ -54,6 +54,7 @@ import { countCharactersForPlatform, getCharacterCountStatus, exceedsCharacterLi
 export function ThreadGenerator() {
   // Add a ref to track if the component is mounted to prevent state updates after unmounting
   const isMountedRef = useRef(false)
+  const [initializationError, setInitializationError] = useState<Error | null>(null)
 
   const {
     value: text,
@@ -112,17 +113,59 @@ export function ThreadGenerator() {
     }
   }, [])
 
+  // Initialize component state
+  useEffect(() => {
+    try {
+      // Load platform preference from localStorage
+      if (typeof window !== "undefined") {
+        const savedPlatform = localStorage.getItem("threadily-platform") as PlatformKey
+        if (savedPlatform && Object.keys(PLATFORMS).includes(savedPlatform)) {
+          setPlatform(savedPlatform)
+          setMaxChars(PLATFORMS[savedPlatform].maxChars)
+        }
+
+        // Load saved content from sessionStorage
+        const savedContent = sessionStorage.getItem("threadily-content")
+        if (savedContent) {
+          setText(savedContent)
+        }
+
+        // Load media items from sessionStorage
+        const savedMediaItems = sessionStorage.getItem("threadily-media-items")
+        if (savedMediaItems) {
+          try {
+            const parsedMediaItems = JSON.parse(savedMediaItems) as MediaItem[]
+            setMediaItems(parsedMediaItems)
+          } catch (e) {
+            console.error("Error parsing saved media items:", e)
+          }
+        }
+      }
+    } catch (err) {
+      setInitializationError(err instanceof Error ? err : new Error('Failed to initialize ThreadGenerator'))
+      console.error("Error initializing ThreadGenerator:", err)
+    }
+  }, [])
+
+  // Handle errors during initialization
+  if (initializationError) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px] p-4 text-center">
+        <AlertCircle className="h-12 w-12 text-red-500 mb-4" />
+        <h2 className="text-xl font-semibold mb-2">Failed to initialize editor</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">{initializationError.message}</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+        >
+          Reload page
+        </button>
+      </div>
+    )
+  }
+
   // Listen for platform changes
   useEffect(() => {
-    // Load platform preference from localStorage on initial render
-    if (typeof window !== "undefined") {
-      const savedPlatform = localStorage.getItem("threadily-platform") as PlatformKey
-      if (savedPlatform && Object.keys(PLATFORMS).includes(savedPlatform)) {
-        setPlatform(savedPlatform)
-        setMaxChars(PLATFORMS[savedPlatform].maxChars)
-      }
-    }
-
     // Listen for platform changes
     const handlePlatformChange = (e: CustomEvent) => {
       const newPlatform = e.detail as PlatformKey
