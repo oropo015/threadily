@@ -90,7 +90,7 @@ export function Footer() {
             <div className="flex items-center gap-2 ml-2">
               <Button variant="ghost" size="icon" asChild className="min-w-[36px] min-h-[36px]">
                 <Link
-                  href="https://x.com/threadifyapp"
+                  href="https://x.com/threadify_app"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="X (Twitter)"
