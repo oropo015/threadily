@@ -174,7 +174,7 @@ export function Header() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <a
-                  href="https://www.buymeacoffee.com/threadify"
+                  href="https://buy.stripe.com/00g3ga4Nte98b848wz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-9 w-9 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground mr-2"
