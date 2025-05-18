@@ -13,7 +13,9 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = await getBlogData(params.slug)
+  // Use a local constant to ensure type safety
+  const slug = params.slug
+  const post = await getBlogData(slug)
 
   // If post doesn't exist, return default metadata
   if (!post) {
@@ -66,7 +68,9 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPost({ params }: Props) {
-  const post = await getBlogData(params.slug)
+  // Use a local constant to ensure type safety
+  const slug = params.slug
+  const post = await getBlogData(slug)
 
   // If post doesn't exist, show 404 page
   if (!post) {

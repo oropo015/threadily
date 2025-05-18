@@ -1,0 +1,105 @@
+name: Security Practices
+description: Security guidelines and best practices for the Threadily application
+
+rules:
+  # Data Handling
+  - id: sec-001
+    name: User Data Protection
+    description: Protect user data and respect privacy
+    details: |
+      - Do not persist user content to external services without consent
+      - Use sessionStorage for temporary state instead of localStorage for sensitive content
+      - Clear user data when sessions expire
+    enforcement: strict
+    
+  - id: sec-002
+    name: Third-Party Services Security
+    description: Secure usage of external APIs and services
+    details: |
+      - Never expose API keys or secrets in client-side code
+      - Use environment variables for sensitive configuration
+      - Validate and sanitize all data received from external services
+    enforcement: strict
+    
+  # Input Validation
+  - id: sec-003
+    name: Input Validation
+    description: Validate all user inputs to prevent injection attacks
+    details: |
+      - Validate and sanitize all user inputs
+      - Implement proper type checking with TypeScript
+      - Use controlled components for form inputs
+    examples:
+      - correct: const [text, setText] = useState<string>("")
+      - correct: <input value={text} onChange={(e) => setText(e.target.value)} />
+    enforcement: strict
+    
+  - id: sec-004
+    name: Content Security
+    description: Ensure secure rendering of content
+    details: |
+      - Avoid dangerouslySetInnerHTML when possible
+      - If needed, sanitize HTML before rendering
+      - Consider using libraries like DOMPurify for sanitization
+    enforcement: strict
+    
+  # Authentication and Authorization
+  - id: sec-005
+    name: Cookie Security
+    description: Implement secure cookie handling practices
+    details: |
+      - Use httpOnly and secure flags for cookies when applicable
+      - Set appropriate expiration times for cookies
+      - Use SameSite attribute to prevent CSRF attacks
+    enforcement: strict
+    
+  - id: sec-006
+    name: Media Upload Security
+    description: Secure media upload and handling
+    details: |
+      - Validate file types and sizes before processing
+      - Scan uploads for malicious content when possible
+      - Process media files in a secure manner
+    enforcement: strict
+    
+  # Web Security
+  - id: sec-007
+    name: XSS Prevention
+    description: Prevent Cross-Site Scripting vulnerabilities
+    details: |
+      - Avoid direct insertion of user input into the DOM
+      - Use appropriate React patterns that automatically escape content
+      - Implement Content Security Policy (CSP) headers
+    enforcement: strict
+    
+  - id: sec-008
+    name: Link Security
+    description: Securely handle external links
+    details: |
+      - Use rel="noopener noreferrer" for external links
+      - Consider warning users when leaving the application
+      - Validate URLs before processing or redirecting
+    examples:
+      - correct: <a href={url} target="_blank" rel="noopener noreferrer">External Link</a>
+      - incorrect: <a href={url} target="_blank">External Link</a>
+    enforcement: recommended
+    
+  # Dependencies
+  - id: sec-009
+    name: Dependency Management
+    description: Manage dependencies securely
+    details: |
+      - Regularly update dependencies to address security vulnerabilities
+      - Use tooling to scan for vulnerabilities in dependencies
+      - Pin dependency versions to prevent unexpected changes
+    enforcement: recommended
+    
+  # Error Handling
+  - id: sec-010
+    name: Secure Error Handling
+    description: Handle errors securely without exposing sensitive information
+    details: |
+      - Use generic error messages for users
+      - Log detailed errors server-side only
+      - Do not expose stack traces or system information to clients
+    enforcement: strict 

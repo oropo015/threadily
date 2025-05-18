@@ -91,9 +91,6 @@ export default function RootLayout({
         <meta name="theme-color" content="#4169E1" />
         <link rel="canonical" href="https://threadify.pro" />
 
-        {/* Preload critical resources */}
-        <link rel="preload" href="/logo.png" as="image" />
-
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />

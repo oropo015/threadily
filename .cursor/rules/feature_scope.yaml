@@ -1,0 +1,121 @@
+name: Feature Scope
+description: Boundaries and guidelines for feature implementation and maintenance in Threadily
+
+rules:
+  # Core Features
+  - id: feat-001
+    name: Thread Generation Core
+    description: Core thread generation functionality must be preserved
+    details: |
+      The thread generation feature is the core of the application and must:
+      - Support multiple platforms (Twitter, Threads, Reddit, Mastodon, etc.)
+      - Maintain character counting logic specific to each platform
+      - Preserve the ability to split posts optimally
+      - Maintain post enhancement and optimization features
+    enforcement: strict
+    
+  - id: feat-002
+    name: Text Processing Pipelines
+    description: Text processing capabilities must be maintained or enhanced, never reduced
+    details: |
+      The text processing capabilities including:
+      - Smart text splitting algorithms
+      - Format detection and enhancement
+      - Character counting logic
+      - Platform-specific formatting rules
+      Must not be removed or diminished in functionality.
+    enforcement: strict
+    
+  - id: feat-003
+    name: Platform Support
+    description: Multi-platform support must be maintained
+    details: |
+      The application must continue to support all existing platforms:
+      - Twitter/X
+      - Threads
+      - Reddit
+      - Mastodon
+      - LinkedIn
+      New platforms can be added but existing ones must not be removed.
+    enforcement: strict
+    
+  # Feature Boundaries
+  - id: feat-004
+    name: AI Enhancement Boundaries
+    description: AI enhancement features must maintain user control
+    details: |
+      AI text enhancement features must:
+      - Always be opt-in, never automatic
+      - Preserve user content and intent
+      - Provide clear feedback on enhancements made
+      - Allow reverting to original content
+    enforcement: strict
+    
+  - id: feat-005
+    name: Media Handling Scope
+    description: Media handling features must maintain existing capabilities
+    details: |
+      Media upload and processing features must maintain:
+      - Support for images and other media types
+      - Preview capabilities
+      - Optimization features
+      - Platform-specific media handling
+    enforcement: strict
+    
+  # Feature Evolution
+  - id: feat-006
+    name: Feature Extension Guidelines
+    description: Guidelines for extending existing features
+    details: |
+      When extending features:
+      - Maintain backward compatibility
+      - Follow existing patterns and conventions
+      - Ensure new functionality integrates seamlessly with existing features
+      - Extend rather than replace existing code when possible
+    enforcement: recommended
+    
+  - id: feat-007
+    name: Feature Deprecation Process
+    description: Process for deprecating features
+    details: |
+      Before removing or significantly changing features:
+      - Document the rationale for deprecation
+      - Provide migration path for users
+      - Ensure replacement offers equivalent or better functionality
+      - Consider backward compatibility period
+    enforcement: recommended
+    
+  # User Experience
+  - id: feat-008
+    name: User Experience Consistency
+    description: Maintain consistent user experience across features
+    details: |
+      User experience must remain consistent:
+      - Follow established UI patterns across the application
+      - Maintain accessibility features
+      - Ensure performance remains optimal for all features
+      - Preserve intuitive workflows
+    enforcement: strict
+    
+  - id: feat-009
+    name: Accessibility Requirements
+    description: Accessibility features must be maintained or enhanced
+    details: |
+      All features must maintain or improve accessibility:
+      - Follow WCAG guidelines
+      - Support keyboard navigation
+      - Maintain proper aria attributes
+      - Ensure proper color contrast
+    enforcement: strict
+    
+  # Data Management
+  - id: feat-010
+    name: Data Persistence Boundaries
+    description: Maintain appropriate data persistence
+    details: |
+      Data persistence features must:
+      - Use appropriate storage mechanisms (sessionStorage vs localStorage)
+      - Respect user privacy
+      - Provide clear import/export capabilities
+      - Not introduce server-side persistence without explicit requirements
+    enforcement: strict 

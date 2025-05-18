@@ -1,0 +1,120 @@
+name: Testing Standards
+description: Guidelines and standards for testing in the Threadily application
+
+rules:
+  # Test Coverage
+  - id: test-001
+    name: Core Feature Testing
+    description: Core features must have comprehensive test coverage
+    details: |
+      These critical features must have comprehensive test coverage:
+      - Text processing algorithms (smartSplitText, formatForPlatform)
+      - Character counting for all platforms
+      - Thread generation and splitting logic
+      - AI enhancement features
+    enforcement: strict
+    
+  - id: test-002
+    name: Component Testing Requirements
+    description: UI components should have appropriate tests
+    details: |
+      UI components should be tested for:
+      - Rendering without errors
+      - User interactions (clicks, inputs)
+      - State changes
+      - Edge cases (empty states, error states)
+    enforcement: recommended
+    
+  # Testing Approaches
+  - id: test-003
+    name: Unit Testing Practices
+    description: Follow established unit testing practices
+    details: |
+      Unit tests should:
+      - Test one specific function or component behavior
+      - Be isolated from external dependencies
+      - Use appropriate mocking and stubbing
+      - Have clear setup and assertions
+    enforcement: strict
+    
+  - id: test-004
+    name: Integration Testing
+    description: Integration tests for feature workflows
+    details: |
+      Integration tests should cover:
+      - End-to-end user workflows
+      - Component interactions
+      - Data flow between components
+      - Cross-cutting concerns
+    enforcement: recommended
+    
+  # Test Organization
+  - id: test-005
+    name: Test File Organization
+    description: Organize test files in a consistent structure
+    details: |
+      Test files should:
+      - Be placed in a __tests__ directory adjacent to the code they test
+      - Follow naming convention: [file-name].test.ts(x)
+      - Group tests logically with describe blocks
+      - Have clear test names describing the behavior
+    examples:
+      - correct: components/__tests__/thread-generator.test.tsx
+    enforcement: recommended
+    
+  - id: test-006
+    name: Test Categorization
+    description: Categorize tests by type and priority
+    details: |
+      Tests should be categorized as:
+      - Unit tests: Testing single functions or components
+      - Integration tests: Testing interactions between parts
+      - End-to-end tests: Testing complete user flows
+      Additionally, mark critical tests that must not be skipped.
+    enforcement: recommended
+    
+  # Testing Tools
+  - id: test-007
+    name: Testing Framework Standards
+    description: Use standard testing tools and libraries
+    details: |
+      Testing should use the following tools:
+      - Jest for unit and integration tests
+      - React Testing Library for component tests
+      - Consider Playwright or Cypress for E2E tests
+      - Use Jest snapshots sparingly and with intention
+    enforcement: recommended
+    
+  - id: test-008
+    name: Mocking Standards
+    description: Follow consistent mocking patterns
+    details: |
+      - Use Jest's mocking capabilities for external dependencies
+      - Create reusable mock factories for common dependencies
+      - Avoid excessive mocking that hides real behavior
+      - Clearly separate test setup, execution, and assertions
+    enforcement: recommended
+    
+  # Test Quality
+  - id: test-009
+    name: Test Quality Standards
+    description: Maintain high-quality tests
+    details: |
+      Tests should:
+      - Be deterministic (no random failures)
+      - Run fast (under 10s for unit tests)
+      - Be independent (no reliance on other tests)
+      - Be readable and maintainable
+      - Have clear failure messages
+    enforcement: strict
+    
+  # CI/CD Integration
+  - id: test-010
+    name: Continuous Integration
+    description: Tests must be integrated with CI pipeline
+    details: |
+      - All tests must pass in CI before merging
+      - Failed tests should block deployment
+      - Test coverage reports should be generated
+      - Consider separate runs for fast and slow tests
+    enforcement: recommended 

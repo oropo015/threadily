@@ -1,0 +1,126 @@
+name: Naming Conventions
+description: Standardized naming patterns for the Threadily application
+
+rules:
+  # File Naming
+  - id: name-001
+    name: Component File Naming
+    description: Component files should use kebab-case with .tsx extension
+    details: |
+      React component files should:
+      - Use kebab-case (e.g., thread-generator.tsx)
+      - End with .tsx extension for TypeScript components
+      - Be descriptive of the component's purpose
+    examples:
+      - correct: thread-generator.tsx
+      - correct: ai-thread-enhancer.tsx
+      - incorrect: ThreadGenerator.tsx
+      - incorrect: thread_generator.tsx
+    enforcement: strict
+    
+  - id: name-002
+    name: Utility File Naming
+    description: Utility files should use kebab-case with .ts extension
+    details: |
+      Utility and library files should:
+      - Use kebab-case (e.g., text-processor.ts)
+      - End with .ts extension for TypeScript files
+      - Be descriptive of the utility's purpose
+    examples:
+      - correct: text-processor.ts
+      - correct: character-counter.ts
+      - incorrect: TextProcessor.ts
+      - incorrect: text_processor.ts
+    enforcement: strict
+    
+  # React Components
+  - id: name-003
+    name: React Component Naming
+    description: React components should use PascalCase
+    details: |
+      React component declarations should:
+      - Use PascalCase (e.g., ThreadGenerator)
+      - Be descriptive and clear
+      - Match the file name (thread-generator.tsx exports ThreadGenerator)
+    examples:
+      - correct: function ThreadGenerator() { ... }
+      - correct: const MediaUploader = () => { ... }
+      - incorrect: function threadGenerator() { ... }
+      - incorrect: const media_uploader = () => { ... }
+    enforcement: strict
+    
+  # Variables and Functions
+  - id: name-004
+    name: Variable Naming
+    description: Variables should use camelCase
+    details: |
+      Variables should:
+      - Use camelCase (e.g., threadPosts)
+      - Be descriptive and convey purpose
+      - Use proper types when declared
+    examples:
+      - correct: const threadPosts = useState<string[]>([])
+      - correct: let characterCount = 0
+      - incorrect: const ThreadPosts = ...
+      - incorrect: let character_count = 0
+    enforcement: strict
+    
+  - id: name-005
+    name: Function Naming
+    description: Functions should use camelCase and be descriptive
+    details: |
+      Functions should:
+      - Use camelCase (e.g., smartSplitText)
+      - Begin with verbs for actions (e.g., calculate, process, handle)
+      - Be descriptive of their purpose
+    examples:
+      - correct: function calculateCharacterCount()
+      - correct: const handleSubmit = () => { ... }
+      - incorrect: function CalculateCharacterCount()
+      - incorrect: const handle_submit = () => { ... }
+    enforcement: strict
+    
+  # TypeScript Types and Interfaces
+  - id: name-006
+    name: Type and Interface Naming
+    description: Types and interfaces should use PascalCase
+    details: |
+      TypeScript types and interfaces should:
+      - Use PascalCase (e.g., MediaItem)
+      - Be descriptive of the data structure
+      - Not use prefixes like 'I' for interfaces
+    examples:
+      - correct: type MediaItem = { ... }
+      - correct: interface UserPreference { ... }
+      - incorrect: type mediaItem = { ... }
+      - incorrect: interface IUserPreference { ... }
+    enforcement: strict
+    
+  # Constants
+  - id: name-007
+    name: Constants Naming
+    description: Constants should use UPPER_SNAKE_CASE for true constants, camelCase for configuration objects
+    details: |
+      - Use UPPER_SNAKE_CASE for primitive unchanging values
+      - Use camelCase for configuration objects like PLATFORMS
+    examples:
+      - correct: const MAX_RETRIES = 3
+      - correct: const PLATFORMS = { twitter: { ... } }
+      - incorrect: const maxRetries = 3 (for true constants)
+      - incorrect: const Platforms = { ... }
+    enforcement: recommended
+    
+  # Event Handlers
+  - id: name-008
+    name: Event Handler Naming
+    description: Event handlers should be prefixed with 'handle' or 'on'
+    details: |
+      Event handlers should:
+      - Use 'handle' prefix for defining handlers (e.g., handleClick)
+      - Use 'on' prefix for props that accept handlers (e.g., onClick)
+    examples:
+      - correct: const handleSubmit = () => { ... }
+      - correct: <button onClick={handleClick}>
+      - incorrect: const submitForm = () => { ... } (as event handler)
+      - incorrect: <button clickHandler={handleClick}>
+    enforcement: recommended 

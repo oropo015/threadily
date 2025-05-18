@@ -1,0 +1,138 @@
+name: Code Style
+description: Coding style and formatting guidelines for the Threadily application
+
+rules:
+  # TypeScript Usage
+  - id: style-001
+    name: TypeScript Type Definitions
+    description: Use proper TypeScript typing
+    details: |
+      - Define explicit types for all variables, parameters, and return values
+      - Avoid using 'any' type unless absolutely necessary
+      - Use interfaces for objects that will be extended, types for unions and simpler objects
+      - Use generics appropriately for reusable components and functions
+    examples:
+      - correct: function calculateTotal(items: Item[]): number
+      - correct: const [state, setState] = useState<string>("")
+      - incorrect: function calculateTotal(items)
+      - incorrect: const [state, setState] = useState()
+    enforcement: strict
+    
+  - id: style-002
+    name: Type Imports
+    description: Import types appropriately
+    details: |
+      - Use import type for type-only imports
+      - Keep type imports separate from value imports
+    examples:
+      - correct: import type { MediaItem } from './types'
+      - correct: import { useState } from 'react'; import type { ReactNode } from 'react'
+    enforcement: recommended
+    
+  # React Patterns
+  - id: style-003
+    name: React Hooks Usage
+    description: Follow React hooks best practices
+    details: |
+      - Call hooks at the top level of your component
+      - Name custom hooks with 'use' prefix
+      - Include all dependencies in effect dependency arrays
+      - Use useCallback for handlers passed as props to child components
+    examples:
+      - correct: useEffect(() => { ... }, [dependency1, dependency2])
+      - incorrect: useEffect(() => { ... }, []) // with dependencies inside
+    enforcement: strict
+    
+  - id: style-004
+    name: Component Organization
+    description: Organize component code in a consistent way
+    details: |
+      - Start with hooks and state declarations
+      - Define derived/computed values
+      - Define event handlers
+      - Define helper functions and effects
+      - Return JSX at the end
+    enforcement: recommended
+    
+  # Format and Whitespace
+  - id: style-005
+    name: Code Formatting
+    description: Follow consistent code formatting
+    details: |
+      - Use 2 spaces for indentation
+      - Keep lines under 100 characters
+      - Use single quotes for strings by default
+      - Add semicolons at the end of statements
+    enforcement: recommended
+    
+  - id: style-006
+    name: Trailing Commas
+    description: Use trailing commas in multi-line object/array literals
+    details: |
+      Use trailing commas for multi-line objects and arrays to make diffs cleaner.
+    examples:
+      - correct: |
+          const obj = {
+            a: 1,
+            b: 2,
+          }
+      - incorrect: |
+          const obj = {
+            a: 1,
+            b: 2
+          }
+    enforcement: recommended
+    
+  # JSX Formatting
+  - id: style-007
+    name: JSX Style
+    description: Follow consistent JSX formatting
+    details: |
+      - Use self-closing tags when components have no children
+      - Put each prop on a new line for components with many props
+      - Use className instead of inline styles when possible
+      - Only use fragments when necessary
+    examples:
+      - correct: <Button variant="primary" onClick={handleClick} />
+      - correct: |
+          <Button
+            variant="primary"
+            onClick={handleClick}
+            disabled={isLoading}
+          >
+            Submit
+          </Button>
+    enforcement: recommended
+    
+  # Comments and Documentation
+  - id: style-008
+    name: Code Comments
+    description: Use appropriate comments
+    details: |
+      - Add comments for complex logic or non-obvious intent
+      - Use JSDoc for public API functions and reusable components
+      - Keep comments updated with code changes
+      - Don't add unnecessary comments for obvious code
+    enforcement: recommended
+    
+  # Performance
+  - id: style-009
+    name: Performance Optimization
+    description: Use React performance optimization patterns
+    details: |
+      - Use React.memo() for pure functional components that render often
+      - Use useMemo() for expensive computations
+      - Use useCallback() for event handlers passed as props
+      - Use virtual rendering for long lists
+    enforcement: recommended
+    
+  # Error Handling
+  - id: style-010
+    name: Error Handling
+    description: Use consistent error handling patterns
+    details: |
+      - Use try/catch blocks for error-prone operations
+      - Provide user-friendly error messages
+      - Log detailed errors for debugging
+      - Use error boundaries for component errors
+    enforcement: recommended 

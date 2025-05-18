@@ -10,7 +10,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: false, // Enable image optimization
-    domains: ['v0.blob.com'], // Add domains for external images
+    domains: ['v0.blob.com', 'images.unsplash.com'], // Add domains for external images
     formats: ['image/avif', 'image/webp'], // Enable modern image formats
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048], // Responsive image sizes
     imageSizes: [16, 32, 48, 64, 96, 128, 256], // Icon sizes

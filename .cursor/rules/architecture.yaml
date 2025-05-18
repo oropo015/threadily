@@ -1,0 +1,95 @@
+name: Architecture Rules
+description: Core architectural patterns and design choices for the Threadily application
+
+rules:
+  # Application Structure
+  - id: arch-001
+    name: Next.js Framework
+    description: Application must maintain Next.js as the core framework
+    details: |
+      The application is built on Next.js and must maintain this architecture.
+      Do not migrate to other frameworks or architectures.
+    enforcement: strict
+    
+  - id: arch-002
+    name: React Component Structure
+    description: Maintain the component-based architecture
+    details: |
+      Components should be modular, reusable, and follow a clear hierarchy.
+      Keep UI logic in components and business logic in hooks, contexts, or libraries.
+    enforcement: strict
+    
+  - id: arch-003
+    name: Directory Structure
+    description: Follow established directory structure
+    details: |
+      - /app: Next.js app router components and pages
+      - /components: Reusable UI components
+      - /contexts: React context providers
+      - /hooks: Custom React hooks
+      - /lib: Utility functions and business logic
+      - /public: Static assets
+      - /styles: Global styles and utilities
+    enforcement: strict
+    
+  - id: arch-004
+    name: State Management
+    description: Use React's built-in state management with Context API
+    details: |
+      Use React Context for global state management.
+      Avoid introducing Redux or other state management libraries.
+    enforcement: recommended
+    
+  # Rendering and Performance
+  - id: arch-005
+    name: Client/Server Component Separation
+    description: Properly utilize Next.js server and client components
+    details: |
+      Use "use client" directive only when necessary.
+      Keep data fetching in server components where possible.
+      Follow React Server Component patterns.
+    enforcement: strict
+    
+  - id: arch-006
+    name: Performance Optimization
+    description: Follow established performance patterns
+    details: |
+      - Use appropriate React memoization techniques (useMemo, useCallback)
+      - Implement proper lazy loading for components and assets
+      - Follow dynamic imports for code splitting
+      - Maintain optimized media handling
+    enforcement: recommended
+    
+  # External Dependencies
+  - id: arch-007
+    name: UI Component Library
+    description: Use Radix UI and shadcn/ui components
+    details: |
+      Maintain usage of Radix UI primitives for accessible components.
+      Follow shadcn/ui patterns for component styling and structure.
+    enforcement: strict
+    
+  - id: arch-008
+    name: Styling Approach
+    description: Use Tailwind CSS for styling
+    details: |
+      Follow Tailwind CSS utility-first approach.
+      Maintain consistent styling patterns across components.
+    enforcement: strict
+    
+  # Data Flow
+  - id: arch-009
+    name: Text Processing Pipeline
+    description: Maintain the text processing architecture
+    details: |
+      The text processing pipeline in lib/text-processor.ts is a core architectural component.
+      Modifications should extend, not replace, the existing pipeline architecture.
+    enforcement: strict
+    
+  - id: arch-010
+    name: Media Handling
+    description: Follow established media handling patterns
+    details: |
+      Maintain the media uploading, processing, and optimization pipeline.
+      Adhere to the established MediaItem interface and processing flows.
+    enforcement: strict 
