@@ -3,10 +3,10 @@ title: "AI-Powered Content Creation: Strategies for 2024"
 date: "2023-12-05"
 summary: "Discover how to effectively leverage AI tools to enhance your content creation process, boost productivity, and create more engaging social media content."
 tags: ["AI content creation", "content strategy", "productivity", "AI tools", "social media"]
-image: "https://images.unsplash.com/photo-1677442135968-6d89469c5f97?q=80&w=1200&auto=format&fit=crop"
-imageCredit: "Possessed Photography"
-imageCreditUrl: "https://unsplash.com/@possessedphotography"
-imageAlt: "Futuristic AI concept with digital interface and glowing elements"
+image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80"
+imageCredit: "Growtika"
+imageCreditUrl: "https://unsplash.com/photos/an-abstract-image-of-a-sphere-with-dots-and-lines-nGoCBxiaRO0"
+imageAlt: "An abstract image of a sphere with dots and lines, representing artificial intelligence and technology."
 author: "Threadify Team"
 ---
 

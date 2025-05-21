@@ -40,8 +40,19 @@ export default function BlogLayout({
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <Header />
-      <main className="min-h-screen bg-white dark:bg-gray-950">
-        <div className="container mx-auto px-4 py-8">{children}</div>
+      <main className="min-h-screen bg-gradient-to-b from-white to-blue-50 dark:from-gray-950 dark:to-gray-900">
+        <div className="relative">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50" />
+            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-3xl opacity-50" />
+          </div>
+          
+          {/* Content container */}
+          <div className="relative container mx-auto px-4 py-12">
+            {children}
+          </div>
+        </div>
       </main>
       <Footer />
     </ThemeProvider>
