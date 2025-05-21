@@ -12,6 +12,7 @@ const PRECACHE_ASSETS = [
   "/icon-192x192.png",
   "/icon-512x512.png",
   "/apple-icon.png",
+  "/social-media-thread-generator",
 ]
 
 // Install event - precache assets

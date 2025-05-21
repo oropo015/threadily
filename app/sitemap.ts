@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/app`,
+      url: `${baseUrl}/social-media-thread-generator`,
       lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.9,

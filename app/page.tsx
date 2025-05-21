@@ -24,7 +24,7 @@ export default function Home() {
     }
 
     // Check if we should show the app or landing page
-    if (pathname === "/app") {
+    if (pathname === "/social-media-thread-generator") {
       setShowApp(true)
     } else {
       setShowApp(false)

@@ -28,7 +28,7 @@ export function OptimizedLandingPage() {
   return (
     <>
       {/* Add resource hints for likely navigation */}
-      <ResourceHints preconnect={["https://fonts.googleapis.com", "https://fonts.gstatic.com"]} prefetch={["/app"]} />
+      <ResourceHints preconnect={["https://fonts.googleapis.com", "https://fonts.gstatic.com"]} prefetch={["/social-media-thread-generator"]} />
 
       {/* Optimize media loading */}
       <MediaOptimizer />

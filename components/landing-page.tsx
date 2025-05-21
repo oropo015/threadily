@@ -27,11 +27,11 @@ export function LandingPage() {
                 Create Perfect Social Media Threads
               </h1>
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 max-w-xl mx-auto md:mx-0">
-                Format your long text into <strong>perfectly-sized posts</strong> for Twitter, Threads, and LinkedIn.
+                Our powerful social media thread generator helps you format your long text into <strong>perfectly-sized posts</strong> for Twitter, Threads, and LinkedIn.
                 Split content, add hashtags, and optimize engagement.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Link href="/app">
+                <Link href="/social-media-thread-generator">
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white min-w-[160px]">
                     Start Creating
                   </Button>
@@ -120,7 +120,7 @@ export function LandingPage() {
             Powerful Features for Content Creators
           </h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-            Everything you need to create engaging, professional social media threads that drive engagement and grow
+            Our social media thread generator provides everything you need to create engaging, professional social media threads that drive engagement and grow
             your audience.
           </p>
 
@@ -337,7 +337,7 @@ export function LandingPage() {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Join thousands of content creators who are using Threadify to grow their audience and save time.
           </p>
-          <Link href="/app">
+          <Link href="/social-media-thread-generator">
             <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 min-w-[200px]">
               Start Creating For Free
             </Button>

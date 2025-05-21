@@ -159,7 +159,7 @@ export function Header() {
 
           {/* Add a "Try App" button on landing page */}
           {isLandingPage && (
-            <Link href="/app">
+            <Link href="/social-media-thread-generator">
               <Button className="ml-2 bg-blue-600 hover:bg-blue-700 text-white min-w-[100px] min-h-[36px]">
                 Try App
               </Button>
@@ -274,7 +274,7 @@ export function Header() {
             {/* Add a "Try App" button on landing page */}
             {isLandingPage && (
               <div className="pt-2">
-                <Link href="/app" className="w-full">
+                <Link href="/social-media-thread-generator" className="w-full">
                   <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white min-h-[44px]">Try App</Button>
                 </Link>
               </div>

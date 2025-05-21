@@ -10,7 +10,7 @@ imageAlt: "Descriptive alt text for the image"
 author: "Author Name"
 ---
 
-## Introduction
+# Introduction
 
 Your introduction paragraph goes here. Make it engaging and clearly state what the reader will learn.
 
@@ -22,14 +22,22 @@ Your content goes here. Use markdown formatting for:
 - To highlight
 - Key information
 
+### Subsection 1.1
+
+More detailed content here.
+
 ## Main Content Section 2
 
 More content here. You can include code examples:
 
-\`\`\`javascript
+```javascript
 const example = "This is a code example";
 console.log(example);
-\`\`\`
+```
+
+### Subsection 2.1
+
+Additional details and explanations.
 
 ## Including Additional Images
 
@@ -45,6 +53,5 @@ Summarize the key points and include a call to action.
 
 - [Reference 1](https://example.com/reference1)
 - [Reference 2](https://example.com/reference2)
-\`\`\`
 
 Finally, let's create a simple image search tool component:

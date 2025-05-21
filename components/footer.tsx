@@ -138,7 +138,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/app"
+                  href="/social-media-thread-generator"
                   className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
                 >
                   App
