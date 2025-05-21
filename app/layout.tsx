@@ -122,7 +122,6 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
         <meta name="theme-color" content="#4169E1" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-        <link rel="canonical" href="https://threadify.pro" />
 
         {/* Preconnect and DNS prefetch for critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
