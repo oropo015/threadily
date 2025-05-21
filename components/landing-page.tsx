@@ -113,6 +113,79 @@ export function LandingPage() {
         </div>
       </section>
 
+      {/* Social Media Thread Generator Section */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+                The Ultimate Social Media Thread Generator
+              </h2>
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                Transform your ideas into engaging social media content with our powerful thread generator. Whether you're a content creator, marketer, or business owner, our tool helps you create perfectly formatted threads that capture attention and drive engagement.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-6 h-6 flex-shrink-0 mt-1">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="ml-3 text-gray-700 dark:text-gray-300">
+                    <strong>Smart Content Splitting</strong> - Automatically breaks your content into optimal post lengths
+                  </p>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 flex-shrink-0 mt-1">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="ml-3 text-gray-700 dark:text-gray-300">
+                    <strong>Platform Optimization</strong> - Tailors content for each social media platform's requirements
+                  </p>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 flex-shrink-0 mt-1">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="ml-3 text-gray-700 dark:text-gray-300">
+                    <strong>Engagement Boost</strong> - Includes features to maximize reach and interaction
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="md:w-1/2">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                  Why Choose Our Social Media Thread Generator?
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
+                    <span className="text-blue-600 mr-2">•</span>
+                    Save hours of manual formatting time
+                  </li>
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
+                    <span className="text-blue-600 mr-2">•</span>
+                    Maintain consistent brand voice
+                  </li>
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
+                    <span className="text-blue-600 mr-2">•</span>
+                    Optimize for each platform's algorithm
+                  </li>
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
+                    <span className="text-blue-600 mr-2">•</span>
+                    Increase engagement with smart formatting
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section id="features" className="py-16 bg-blue-50 dark:bg-gray-900">
         <div className="container mx-auto px-4 max-w-6xl">
