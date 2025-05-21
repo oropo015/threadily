@@ -31,7 +31,12 @@ export const metadata: Metadata = {
     "instagram thread creator",
     "linkedin post generator",
     "content creation tool",
-    "text splitter"
+    "text splitter",
+    "social media content",
+    "thread optimization",
+    "content formatting",
+    "social media management",
+    "content scheduling"
   ],
   creator: "threadify",
   publisher: "threadify",
@@ -103,10 +108,18 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
     yandex: "your-yandex-verification-code",
+    bing: "your-bing-verification-code",
   },
   other: {
     "msapplication-TileColor": "#4169E1",
     "theme-color": "#4169E1",
+    "referrer": "origin-when-cross-origin",
+    "author": "threadify",
+    "category": "Social Media Tools",
+    "distribution": "Global",
+    "rating": "General",
+    "revisit-after": "7 days",
+    "generator": "Next.js",
   }
 }
 
@@ -122,16 +135,26 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
         <meta name="theme-color" content="#4169E1" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-
+        
+        {/* Enhanced SEO Meta Tags */}
+        <meta name="author" content="threadify" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="rating" content="General" />
+        <meta name="distribution" content="Global" />
+        <meta name="category" content="Social Media Tools" />
+        
         {/* Preconnect and DNS prefetch for critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+        
         {/* Preload critical assets */}
         <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-
+        
         {/* Apple touch icons */}
         <link rel="apple-touch-startup-image" href="/apple-splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -139,9 +162,32 @@ export default function RootLayout({
         {/* Social media verification */}
         <meta name="twitter:site" content="@threadifyapp" />
         <meta property="og:site_name" content="threadify" />
-
+        
         {/* Performance monitoring */}
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "threadify",
+            "url": "https://threadify.pro",
+            "description": "Format your long text into perfectly-sized posts for social media threads",
+            "applicationCategory": "Social Media Tool",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "threadify",
+              "url": "https://threadify.pro"
+            }
+          })}
+        </script>
       </head>
       <body className={`${inter.className} antialiased`}>
         <FontOptimizer />
