@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -17,12 +17,20 @@ const inter = Inter({
   adjustFontFallback: true,
 })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+}
+
 export const metadata: Metadata = {
   title: {
-    default: "threadify - Free Social Media Threads Generator",
+    default: "threadify – Free Social Media Thread Generator",
     template: "%s | threadify"
   },
-  description: "Format your long text into perfectly-sized posts for Twitter, Instagram, and LinkedIn. Split text, optimize engagement, and create professional social media thread generator.",
+  description: "Free tool to split long text into optimized social media threads for Twitter/X, Threads, LinkedIn, Reddit, and Mastodon. Smart formatting and character counting.",
   metadataBase: new URL("https://threadify.pro"),
   applicationName: "threadify",
   keywords: [
@@ -128,40 +136,26 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
         <meta name="theme-color" content="#4169E1" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-        
-        {/* Enhanced SEO Meta Tags */}
-        <meta name="author" content="threadify" />
-        <meta name="robots" content="index, follow" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="rating" content="General" />
-        <meta name="distribution" content="Global" />
-        <meta name="category" content="Social Media Tools" />
-        
+
         {/* Preconnect and DNS prefetch for critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
-        
+
         {/* Preload critical assets */}
         <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        
+
         {/* Apple touch icons */}
         <link rel="apple-touch-startup-image" href="/apple-splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        
-        {/* Social media verification */}
-        <meta name="twitter:site" content="@threadifyapp" />
-        <meta property="og:site_name" content="threadify" />
-        
+
         {/* Performance monitoring */}
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
-        
+
         {/* Structured Data — server-rendered so crawlers see it without JS */}
         <WebsiteStructuredData />
         <SoftwareApplicationStructuredData />

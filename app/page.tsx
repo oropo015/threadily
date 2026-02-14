@@ -6,8 +6,8 @@ import { LangSyncFromUrl } from "@/components/lang-sync-from-url"
 import { FAQPageStructuredData } from "@/components/structured-data"
 
 export const metadata: Metadata = {
-  title: "threadify - Free Social Media Thread Generator & Thread Maker",
-  description: "Create perfect social media threads for Twitter/X, Threads, LinkedIn, Reddit, and Mastodon. Free thread generator that splits long text into optimized posts with smart formatting.",
+  title: "threadify – Free Thread Generator for Twitter, LinkedIn & More",
+  description: "Split long text into perfectly-sized social media threads. Free generator for Twitter/X, Threads, LinkedIn, Reddit, and Mastodon with smart formatting.",
   alternates: {
     canonical: "https://threadify.pro",
   },
