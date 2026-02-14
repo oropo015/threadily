@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
+import { SOCIAL_TOOL_PATHS } from "@/lib/social-routes"
+import { PLATFORMS, type PlatformKey } from "@/lib/constants"
 
 /**
  * SEO-optimized content section for the thread generator page.
@@ -61,6 +63,35 @@ export function ThreadGeneratorSeoContent() {
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Our thread maker eliminates the tedious manual work of counting characters, splitting text, and formatting each post individually. This saves content creators, marketers, and social media managers hours of work while ensuring professional, consistent formatting across all platforms.
         </p>
+      </section>
+
+      {/* Platform-specific tools — SEO + internal linking */}
+      <section className="border-t border-gray-200 dark:border-gray-800 pt-8 mb-8">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          Platform-specific tools
+        </h2>
+        <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm">
+          Use a dedicated tool for your platform: optimized limits, tips, and formatting.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+          {(["twitter", "threads", "linkedin", "reddit", "mastodon", "facebook"] as PlatformKey[]).map((p) => (
+            <Link
+              key={p}
+              href={p === "twitter" ? SOCIAL_TOOL_PATHS.x : SOCIAL_TOOL_PATHS[p]}
+              className="p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+            >
+              <span className="font-medium text-gray-900 dark:text-gray-100">{PLATFORMS[p].name}</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400 block mt-0.5">
+                {p === "twitter" && "X thread generator"}
+                {p === "threads" && "Threads thread generator"}
+                {p === "linkedin" && "LinkedIn post formatter"}
+                {p === "reddit" && "Reddit post splitter"}
+                {p === "mastodon" && "Mastodon post splitter"}
+                {p === "facebook" && "Facebook post formatter"}
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Internal Links Section */}

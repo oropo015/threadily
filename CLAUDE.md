@@ -15,7 +15,7 @@ Threadily (branded as "threadify") is a free social media thread generator web a
 
 ## Architecture
 
-**App Router structure** (`app/`): The main tool lives at `/social-media-thread-generator`. The landing page is at `/`. Other routes: `/blog`, `/faq`, `/privacy`, `/terms`, `/cookies`.
+**App Router structure** (`app/`): The landing page is at `/`. The main tool (keyword-rich SEO URL) is `/social-media-thread-generator`. Platform-specific tools: `/social/x-thread-generator`, `/social/threads-thread-generator`, `/social/linkedin-post-formatter`, `/social/reddit-post-splitter`, `/social/mastodon-post-splitter`, `/social/facebook-post-formatter`. Visiting `/social` 301-redirects to `/social-media-thread-generator`. Visiting `/social-media-thread-generator?platform=x` (etc.) 301-redirects to the matching `/social/...` page. Other routes: `/blog`, `/faq`, `/privacy`, `/terms`, `/cookies`.
 
 **Core data flow**: User text → `lib/text-processor.ts` (smart splitting, format detection, platform-specific rules) → `components/thread-generator.tsx` (main UI) → platform-specific post output with character counting via `lib/character-counter.ts`.
 

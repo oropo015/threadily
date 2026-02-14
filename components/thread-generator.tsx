@@ -51,9 +51,15 @@ import { PresetHashtagsInput } from "./preset-hashtags-input"
 // Import the new character counter utilities
 import { countCharactersForPlatform, getCharacterCountStatus, exceedsCharacterLimit } from "@/lib/character-counter"
 
-export function ThreadGenerator() {
+interface ThreadGeneratorProps {
+  /** When set (e.g. on a platform-specific /social/xxx page), preselects this platform and syncs URL on change. */
+  initialPlatform?: PlatformKey
+}
+
+export function ThreadGenerator({ initialPlatform }: ThreadGeneratorProps = {}) {
   // Add a ref to track if the component is mounted to prevent state updates after unmounting
   const isMountedRef = useRef(false)
+  const initialPlatformRef = useRef(initialPlatform)
 
   const {
     value: text,
@@ -71,8 +77,10 @@ export function ThreadGenerator() {
   const [replaceText, setReplaceText] = useState("")
   const [isGenerating, setIsGenerating] = useState(false)
   const [characterCount, setCharacterCount] = useState(0)
-  const [platform, setPlatform] = useState<PlatformKey>("twitter")
-  const [maxChars, setMaxChars] = useState(PLATFORMS.twitter.maxChars)
+  const [platform, setPlatform] = useState<PlatformKey>(initialPlatform ?? "twitter")
+  const [maxChars, setMaxChars] = useState(
+    initialPlatform ? PLATFORMS[initialPlatform].maxChars : PLATFORMS.twitter.maxChars,
+  )
   const [isSaved, setIsSaved] = useState(false)
   const [formatTips, setFormatTips] = useState<string[]>([])
   const [showAIEnhancer, setShowAIEnhancer] = useState(false)
@@ -113,24 +121,24 @@ export function ThreadGenerator() {
     }
   }, [])
 
-  // Listen for platform changes
+  // Listen for platform changes and optionally load from localStorage (when not using initialPlatform)
   useEffect(() => {
-    // Load platform preference from localStorage on initial render
     if (typeof window !== "undefined") {
-      const savedPlatform = localStorage.getItem("threadify-platform") as PlatformKey
-      if (savedPlatform && Object.keys(PLATFORMS).includes(savedPlatform)) {
-        setPlatform(savedPlatform)
-        setMaxChars(PLATFORMS[savedPlatform].maxChars)
+      const fromRoute = initialPlatformRef.current
+      if (!fromRoute) {
+        const savedPlatform = localStorage.getItem("threadify-platform") as PlatformKey
+        if (savedPlatform && Object.keys(PLATFORMS).includes(savedPlatform)) {
+          setPlatform(savedPlatform)
+          setMaxChars(PLATFORMS[savedPlatform].maxChars)
+        }
       }
 
-      // Load preset hashtags from localStorage
       const savedPresetHashtags = localStorage.getItem("threadify-preset-hashtags")
       if (savedPresetHashtags) {
         setPresetHashtags(savedPresetHashtags)
       }
     }
 
-    // Listen for platform changes
     const handlePlatformChange = (e: CustomEvent) => {
       const newPlatform = e.detail as PlatformKey
       setPlatform(newPlatform)

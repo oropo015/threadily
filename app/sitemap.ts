@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { getSortedBlogsData, getAllTags } from "@/lib/blog-utils"
+import { SOCIAL_TOOL_PATHS } from "@/lib/social-routes"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://threadify.pro"
@@ -23,6 +24,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
+  // Social tools: main generator (keyword-rich URL) + one URL per platform
+  const socialToolUrls = [
+    { path: "/social-media-thread-generator", priority: 0.9 as const },
+    { path: SOCIAL_TOOL_PATHS.x, priority: 0.9 as const },
+    { path: SOCIAL_TOOL_PATHS.threads, priority: 0.9 as const },
+    { path: SOCIAL_TOOL_PATHS.linkedin, priority: 0.9 as const },
+    { path: SOCIAL_TOOL_PATHS.reddit, priority: 0.9 as const },
+    { path: SOCIAL_TOOL_PATHS.mastodon, priority: 0.9 as const },
+    { path: SOCIAL_TOOL_PATHS.facebook, priority: 0.9 as const },
+  ].map(({ path, priority }) => ({
+    url: `${baseUrl}${path}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority,
+  }))
+
   // Main pages
   const mainPages = [
     {
@@ -30,12 +47,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified,
       changeFrequency: "daily" as const,
       priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/social-media-thread-generator`,
-      lastModified,
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
     },
     {
       url: `${baseUrl}/blog`,
@@ -69,5 +80,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  return [...mainPages, ...blogUrls, ...tagUrls]
+  return [...mainPages, ...socialToolUrls, ...blogUrls, ...tagUrls]
 }

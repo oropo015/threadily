@@ -10,8 +10,9 @@ import { Twitter, AtSign, MessageSquare, Hash, Linkedin, Facebook, Menu, X, Coff
 import { PLATFORMS, type PlatformKey } from "@/lib/constants"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { getPlatformFromPath, getSocialToolPath } from "@/lib/social-routes"
 
 export function Header() {
   const [platform, setPlatform] = useState<PlatformKey>("twitter")
@@ -20,36 +21,45 @@ export function Header() {
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
 
-  // Check if we're on the landing page
+  // Check if we're on the home landing page
   const isLandingPage = pathname === "/" || pathname === ""
+
+  // When on a /social/xxx tool page, derive platform from URL so dropdown and URL stay in sync
+  const isSocialToolPage = pathname?.startsWith("/social/") && pathname !== "/social"
+  const slugFromPath = isSocialToolPage ? pathname.replace(/^\/social\/?/, "").split("/")[0] ?? "" : ""
+  const platformFromPath = isSocialToolPage ? getPlatformFromPath(slugFromPath) : null
+  const displayPlatform = platformFromPath ?? platform
 
   // Ensure component is mounted before accessing theme
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  // Update localStorage keys
-  // Load platform preference from localStorage on initial render
+  // Load platform from localStorage on initial render (when not on a platform-specific /social/xxx page)
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && !platformFromPath) {
       const savedPlatform = localStorage.getItem("threadify-platform") as PlatformKey
       if (savedPlatform && Object.keys(PLATFORMS).includes(savedPlatform)) {
         setPlatform(savedPlatform)
-        // Dispatch a custom event to notify other components
         window.dispatchEvent(new CustomEvent("platformChange", { detail: savedPlatform }))
       }
     }
   }, [])
 
-  // Save platform preference to localStorage whenever it changes
+  // When pathname is a /social/xxx page, sync platform state from URL
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (platformFromPath) setPlatform(platformFromPath)
+  }, [platformFromPath])
+
+  // Save platform preference to localStorage when it changes (and not driven by URL)
+  useEffect(() => {
+    if (typeof window !== "undefined" && !platformFromPath) {
       localStorage.setItem("threadify-platform", platform)
-      // Dispatch a custom event to notify other components
       window.dispatchEvent(new CustomEvent("platformChange", { detail: platform }))
     }
-  }, [platform])
+  }, [platform, platformFromPath])
 
   const getPlatformIcon = (platformKey: PlatformKey) => {
     switch (platformKey) {
@@ -130,9 +140,19 @@ export function Header() {
           {/* Keep only the ModeToggle component */}
           <ModeToggle />
 
-          {/* Only show platform selector if not on landing page */}
+          {/* Only show platform selector if not on home landing page */}
           {!isLandingPage && (
-            <Select value={platform} onValueChange={(value: PlatformKey) => setPlatform(value)}>
+            <Select
+              value={displayPlatform}
+              onValueChange={(value: PlatformKey) => {
+                if (isSocialToolPage) {
+                  router.push(getSocialToolPath(value))
+                } else {
+                  setPlatform(value)
+                  window.dispatchEvent(new CustomEvent("platformChange", { detail: value }))
+                }
+              }}
+            >
               <SelectTrigger className="w-[140px] h-9 min-w-[140px] min-h-[36px]" aria-label="Select platform">
                 <SelectValue placeholder={t("header", "platform")} />
               </SelectTrigger>
@@ -162,7 +182,6 @@ export function Header() {
             </SelectContent>
           </Select>
 
-          {/* Add a "Try App" button on landing page */}
           {isLandingPage && (
             <Link href="/social-media-thread-generator">
               <Button className="ml-2 bg-blue-600 hover:bg-blue-700 text-white min-w-[100px] min-h-[36px]">
@@ -250,11 +269,21 @@ export function Header() {
               </Link>
             </div>
 
-            {/* Only show platform selector if not on landing page */}
             {!isLandingPage && (
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium">{t("header", "platform")}</span>
-                <Select value={platform} onValueChange={(value: PlatformKey) => setPlatform(value)}>
+                <Select
+                  value={displayPlatform}
+                  onValueChange={(value: PlatformKey) => {
+                    if (isSocialToolPage) {
+                      router.push(getSocialToolPath(value))
+                      setMobileMenuOpen(false)
+                    } else {
+                      setPlatform(value)
+                      window.dispatchEvent(new CustomEvent("platformChange", { detail: value }))
+                    }
+                  }}
+                >
                   <SelectTrigger className="w-[140px] h-9 min-w-[140px] min-h-[44px]" aria-label="Select platform">
                     <SelectValue placeholder={t("header", "platform")} />
                   </SelectTrigger>

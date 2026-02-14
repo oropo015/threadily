@@ -132,12 +132,18 @@ export function BreadcrumbStructuredData({
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 }
 
-export function HowToStructuredData() {
+export function HowToStructuredData({
+  name = "How to Create a Social Media Thread",
+  description = "Use Threadify to split your long text into perfectly-sized posts for Twitter, Threads, LinkedIn, and more.",
+}: {
+  name?: string
+  description?: string
+} = {}) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "How to Create a Social Media Thread",
-    description: "Use Threadify to split your long text into perfectly-sized posts for Twitter, Threads, LinkedIn, and more.",
+    name,
+    description,
     step: [
       {
         "@type": "HowToStep",
