@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/contexts/language-context"
 import { FontOptimizer } from "@/components/font-optimizer"
 import { CookieConsent } from "@/components/cookie-consent"
+import { WebsiteStructuredData, SoftwareApplicationStructuredData } from "@/components/structured-data"
 
 // Optimized font loading with subsetting and proper display
 const inter = Inter({
@@ -162,58 +163,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         
         {/* Structured Data — server-rendered so crawlers see it without JS */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Threadify",
-            url: "https://threadify.pro",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: "https://threadify.pro/search?q={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
-            description:
-              "Create perfect social media threads for Twitter, Instagram, and LinkedIn. Split text, add hashtags, and optimize your content.",
-            publisher: {
-              "@type": "Organization",
-              name: "Threadify",
-              logo: { "@type": "ImageObject", url: "https://threadify.pro/logo.png" },
-            },
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            name: "Threadify",
-            applicationCategory: "UtilitiesApplication",
-            operatingSystem: "Web",
-            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-            aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", ratingCount: "156" },
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "threadify",
-            "url": "https://threadify.pro",
-            "description": "Format your long text into perfectly-sized posts for social media threads",
-            "applicationCategory": "Social Media Tool",
-            "operatingSystem": "Web",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "author": {
-              "@type": "Organization",
-              "name": "threadify",
-              "url": "https://threadify.pro"
-            }
-          })}
-        </script>
+        <WebsiteStructuredData />
+        <SoftwareApplicationStructuredData />
       </head>
       <body className={`${inter.className} antialiased`}>
         <FontOptimizer />

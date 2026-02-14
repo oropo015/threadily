@@ -43,16 +43,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "daily" as const,
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/faq`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/cookies`,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
   ]
 
-  // Language-specific routes
-  const languages = ["en", "es", "fr", "de", "ja"]
-  const languageUrls = languages.map((lang) => ({
-    url: `${baseUrl}?lang=${lang}`,
-    lastModified,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }))
-
-  return [...mainPages, ...languageUrls, ...blogUrls, ...tagUrls]
+  return [...mainPages, ...blogUrls, ...tagUrls]
 }

@@ -1,11 +1,15 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { HowToStructuredData, BreadcrumbStructuredData } from "@/components/structured-data"
 
 export const metadata: Metadata = {
   title: "Social Media Thread Generator",
   description:
     "Split long text into Twitter, Instagram, and LinkedIn threads. Free thread generator — format posts, add hashtags, and optimize for every platform.",
+  alternates: {
+    canonical: "https://threadify.pro/social-media-thread-generator",
+  },
   openGraph: {
     title: "Social Media Thread Generator | threadify",
     description:
@@ -59,6 +63,13 @@ function ToolHero() {
 export default function ToolLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <HowToStructuredData />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "Home", url: "https://threadify.pro" },
+          { name: "Thread Generator", url: "https://threadify.pro/social-media-thread-generator" },
+        ]}
+      />
       <ToolHero />
       {children}
     </>

@@ -91,3 +91,76 @@ export function BlogPostStructuredData({
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 }
+
+export function FAQPageStructuredData({
+  faqs,
+}: {
+  faqs: { question: string; answer: string }[]
+}) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+}
+
+export function BreadcrumbStructuredData({
+  items,
+}: {
+  items: { name: string; url: string }[]
+}) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+}
+
+export function HowToStructuredData() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Create a Social Media Thread",
+    description: "Use Threadify to split your long text into perfectly-sized posts for Twitter, Threads, LinkedIn, and more.",
+    step: [
+      {
+        "@type": "HowToStep",
+        name: "Paste your text",
+        text: "Paste or type your long-form content into the Threadify editor.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Select your platform",
+        text: "Choose the social media platform you want to create threads for, such as Twitter/X, Threads, LinkedIn, Reddit, or Mastodon.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Generate your thread",
+        text: "Click Generate Thread to automatically split your content into optimally-sized posts with proper character counts.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Copy and share",
+        text: "Review your thread, make any edits, then copy the posts to share on your chosen platform.",
+      },
+    ],
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+}

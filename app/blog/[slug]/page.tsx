@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Share2, Twitter, Linkedin, Facebook } from "lucide-react"
-import { BlogPostStructuredData } from "@/components/structured-data"
+import { BlogPostStructuredData, BreadcrumbStructuredData } from "@/components/structured-data"
 import { BlogImage } from "@/components/blog-image"
 import { notFound } from "next/navigation"
 
@@ -106,6 +106,13 @@ export default async function BlogPost({ params }: Props) {
           imageUrl={post.image || defaultImage}
           authorName={post.author || "Threadify Team"}
           url={postUrl}
+        />
+        <BreadcrumbStructuredData
+          items={[
+            { name: "Home", url: "https://threadify.pro" },
+            { name: "Blog", url: "https://threadify.pro/blog" },
+            { name: post.title, url: postUrl },
+          ]}
         />
 
         {/* Back button */}

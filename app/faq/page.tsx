@@ -1,15 +1,77 @@
 import type { Metadata } from "next"
 import { BackToHome } from "@/components/back-to-home"
 import Link from "next/link"
+import { FAQPageStructuredData, BreadcrumbStructuredData } from "@/components/structured-data"
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | threadify",
   description: "Find answers to common questions about threadify and how to use our thread generator tool.",
+  alternates: {
+    canonical: "https://threadify.pro/faq",
+  },
 }
+
+const faqData = [
+  {
+    question: "What is threadify?",
+    answer: "threadify is a tool that helps you create perfectly-sized posts for social media threads. It automatically splits your long text into optimal chunks for platforms like Twitter, Instagram, and LinkedIn, while preserving the flow and readability of your content.",
+  },
+  {
+    question: "Is threadify free to use?",
+    answer: "Yes, threadify is free to use for basic features. We offer premium features for users who need advanced functionality, but the core thread generation capabilities are available at no cost.",
+  },
+  {
+    question: "Do I need to create an account?",
+    answer: "No, you don't need to create an account to use the basic features of threadify. However, creating an account allows you to save your threads, access premium features, and sync your content across devices.",
+  },
+  {
+    question: "How do I create a thread?",
+    answer: "Simply paste your long text into the editor and click \"Generate Thread.\" threadify will automatically split your content into optimally-sized posts for your selected platform. You can then edit each post, reorder them, and add hashtags before sharing.",
+  },
+  {
+    question: "What platforms does threadify support?",
+    answer: "threadify currently supports Twitter/X, Instagram, LinkedIn, Threads, Mastodon, and Reddit. We're constantly adding support for more platforms based on user feedback.",
+  },
+  {
+    question: "Can I customize how my text is split?",
+    answer: "Yes, threadify offers several customization options. You can adjust the character limit per post, choose where to split your text (at sentences, paragraphs, or custom points), and manually edit the generated posts.",
+  },
+  {
+    question: "Can threadify generate hashtags for my content?",
+    answer: "Yes, threadify can analyze your content and suggest relevant hashtags to increase your post's visibility. You can select which hashtags to include and add your own custom hashtags as well.",
+  },
+  {
+    question: "Does threadify support media attachments?",
+    answer: "Yes, you can upload images to include with your thread posts. Premium users can access additional media features like image optimization and scheduling.",
+  },
+  {
+    question: "Can I save my threads for later?",
+    answer: "Yes, threadify allows you to save your threads locally. Premium users can save threads to their account and access them from any device.",
+  },
+  {
+    question: "How does threadify handle my data?",
+    answer: "We take your privacy seriously. Your content is processed securely, and we don't store your thread content on our servers unless you explicitly save it to your account.",
+  },
+  {
+    question: "Is my content used to train AI models?",
+    answer: "No, we do not use your content to train AI models. Your data is only used to provide the service you requested.",
+  },
+  {
+    question: "Can I delete my data from threadify?",
+    answer: "Yes, you can delete any saved threads from your account at any time. If you have an account, you can also request a complete deletion of all your data by contacting us at info@techternet.com.",
+  },
+]
 
 export default function FAQPage() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <FAQPageStructuredData faqs={faqData} />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "Home", url: "https://threadify.pro" },
+          { name: "FAQ", url: "https://threadify.pro/faq" },
+        ]}
+      />
       <BackToHome />
 
       <h1 className="text-3xl font-bold mb-8">Frequently Asked Questions</h1>

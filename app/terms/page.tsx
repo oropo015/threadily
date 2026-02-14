@@ -4,6 +4,9 @@ import { BackToHome } from "@/components/back-to-home"
 export const metadata: Metadata = {
   title: "Terms of Service | threadify",
   description: "Terms of Service for threadify - Learn about the rules and guidelines for using our platform.",
+  alternates: {
+    canonical: "https://threadify.pro/terms",
+  },
 }
 
 export default function TermsOfService() {

@@ -4,6 +4,9 @@ import { BackToHome } from "@/components/back-to-home"
 export const metadata: Metadata = {
   title: "Privacy Policy | threadify",
   description: "Privacy Policy for threadify - Learn how we collect, use, and protect your personal information.",
+  alternates: {
+    canonical: "https://threadify.pro/privacy",
+  },
 }
 
 export default function PrivacyPolicy() {

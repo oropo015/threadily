@@ -4,6 +4,9 @@ import { BackToHome } from "@/components/back-to-home"
 export const metadata: Metadata = {
   title: "Cookie Policy | threadify",
   description: "Cookie Policy for threadify - Learn how we use cookies and similar technologies.",
+  alternates: {
+    canonical: "https://threadify.pro/cookies",
+  },
 }
 
 export default function CookiePolicy() {
