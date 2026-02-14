@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Share2, Twitter, Linkedin, Facebook } from "lucide-react"
 import { BlogPostStructuredData, BreadcrumbStructuredData } from "@/components/structured-data"
 import { BlogImage } from "@/components/blog-image"
+import { BreadcrumbNav } from "@/components/breadcrumb-nav"
 import { notFound } from "next/navigation"
 
 type Props = {
@@ -115,10 +116,17 @@ export default async function BlogPost({ params }: Props) {
           ]}
         />
 
-        {/* Back button */}
-        <Link 
-          href="/blog" 
+        <BreadcrumbNav
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: post.title, href: `/blog/${post.slug}` },
+          ]}
+        />
+        <Link
+          href="/blog"
           className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 transition-colors group"
+          aria-label="Back to all blog posts"
         >
           <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to all posts

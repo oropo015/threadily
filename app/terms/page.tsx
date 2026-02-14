@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { BackToHome } from "@/components/back-to-home"
+import { BreadcrumbNav } from "@/components/breadcrumb-nav"
+import { InternalLegalLinks } from "@/components/internal-legal-links"
 
 export const metadata: Metadata = {
   title: "Terms of Service | threadify",
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 export default function TermsOfService() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <BreadcrumbNav items={[{ label: "Home", href: "/" }, { label: "Terms of Service", href: "/terms" }]} />
       <BackToHome />
 
       <h1 className="text-3xl font-bold mb-8">Terms of Service</h1>
@@ -191,6 +194,8 @@ export default function TermsOfService() {
             info@techternet.com
           </a>
         </p>
+
+        <InternalLegalLinks />
       </div>
     </div>
   )

@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { BackToHome } from "@/components/back-to-home"
 import Link from "next/link"
 import { FAQPageStructuredData, BreadcrumbStructuredData } from "@/components/structured-data"
+import { BreadcrumbNav } from "@/components/breadcrumb-nav"
+import { InternalLegalLinks } from "@/components/internal-legal-links"
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | threadify",
@@ -72,6 +74,7 @@ export default function FAQPage() {
           { name: "FAQ", url: "https://threadify.pro/faq" },
         ]}
       />
+      <BreadcrumbNav items={[{ label: "Home", href: "/" }, { label: "FAQ", href: "/faq" }]} />
       <BackToHome />
 
       <h1 className="text-3xl font-bold mb-8">Frequently Asked Questions</h1>
@@ -253,6 +256,8 @@ export default function FAQPage() {
             </div>
           </div>
         </section>
+
+        <InternalLegalLinks />
       </div>
     </div>
   )

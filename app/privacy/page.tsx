@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { BackToHome } from "@/components/back-to-home"
+import { BreadcrumbNav } from "@/components/breadcrumb-nav"
+import { InternalLegalLinks } from "@/components/internal-legal-links"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | threadify",
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <BreadcrumbNav items={[{ label: "Home", href: "/" }, { label: "Privacy Policy", href: "/privacy" }]} />
       <BackToHome />
 
       <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
@@ -193,6 +196,8 @@ export default function PrivacyPolicy() {
             info@techternet.com
           </a>
         </p>
+
+        <InternalLegalLinks />
       </div>
     </div>
   )

@@ -5,6 +5,7 @@ import { getAllPosts, getAllTags } from "@/lib/blog-utils"
 import Image from "next/image"
 import type { Metadata } from "next"
 import { ArrowRight } from "lucide-react"
+import { BreadcrumbNav } from "@/components/breadcrumb-nav"
 
 export const metadata: Metadata = {
   title: "Blog | Threadify",
@@ -37,6 +38,7 @@ export default async function BlogPage() {
 
   return (
     <div className="max-w-7xl mx-auto">
+      <BreadcrumbNav items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }]} />
       {/* Hero section */}
       <div className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">

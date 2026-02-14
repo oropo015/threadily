@@ -94,12 +94,17 @@ export function Header() {
             <span className="text-sm text-gray-600 dark:text-gray-300">{t("header", "formatText")}</span>
           )}
 
-          {/* Add Blog Link */}
           <Link
             href="/blog"
             className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
           >
             Blog
+          </Link>
+          <Link
+            href="/faq"
+            className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+          >
+            FAQ
           </Link>
 
           {/* Buy Me a Coffee button */}
@@ -214,14 +219,34 @@ export function Header() {
           className="md:hidden py-3 px-4 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 animate-in fade-in-50"
         >
           <div className="space-y-3">
-            {/* Add Blog Link */}
-            <div className="py-2">
+            <div className="grid grid-cols-2 gap-2 py-2">
+              <Link
+                href="/"
+                className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/social-media-thread-generator"
+                className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                App
+              </Link>
               <Link
                 href="/blog"
                 className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Blog
+              </Link>
+              <Link
+                href="/faq"
+                className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                FAQ
               </Link>
             </div>
 

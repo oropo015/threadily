@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { BackToHome } from "@/components/back-to-home"
+import { BreadcrumbNav } from "@/components/breadcrumb-nav"
+import { InternalLegalLinks } from "@/components/internal-legal-links"
 
 export const metadata: Metadata = {
   title: "Cookie Policy | threadify",
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 export default function CookiePolicy() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <BreadcrumbNav items={[{ label: "Home", href: "/" }, { label: "Cookie Policy", href: "/cookies" }]} />
       <BackToHome />
 
       <h1 className="text-3xl font-bold mb-8">Cookie Policy</h1>
@@ -179,6 +182,8 @@ export default function CookiePolicy() {
             info@techternet.com
           </a>
         </p>
+
+        <InternalLegalLinks />
       </div>
     </div>
   )

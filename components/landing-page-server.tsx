@@ -449,6 +449,14 @@ export function LandingPageServer() {
                 engagement patterns specific to each platform.
               </p>
             </div>
+            <p className="text-center mt-6">
+              <Link
+                href="/faq"
+                className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+              >
+                View full FAQ →
+              </Link>
+            </p>
           </div>
         </div>
       </section>

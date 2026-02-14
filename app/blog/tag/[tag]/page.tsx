@@ -5,6 +5,7 @@ import { getPostsByTag, getAllTags } from "@/lib/blog-utils"
 import { Badge } from "@/components/ui/badge"
 import { formatDate } from "@/lib/utils"
 import { ChevronLeft } from "lucide-react"
+import { BreadcrumbNav } from "@/components/breadcrumb-nav"
 
 type Props = {
   params: {
@@ -48,10 +49,17 @@ export default async function TagPage({ params }: Props) {
 
   return (
     <div className="max-w-5xl mx-auto">
-      {/* Back to blog link */}
+      <BreadcrumbNav
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: decodedTag, href: `/blog/tag/${encodeURIComponent(decodedTag)}` },
+        ]}
+      />
       <Link
         href="/blog"
         className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 mb-6 transition-colors"
+        aria-label="Back to all blog posts"
       >
         <ChevronLeft className="h-4 w-4 mr-1" />
         Back to all posts
