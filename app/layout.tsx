@@ -105,11 +105,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    bing: "your-bing-verification-code",
-  },
   other: {
     "msapplication-TileColor": "#4169E1",
     "theme-color": "#4169E1",
@@ -166,7 +161,38 @@ export default function RootLayout({
         {/* Performance monitoring */}
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         
-        {/* Structured Data */}
+        {/* Structured Data — server-rendered so crawlers see it without JS */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Threadify",
+            url: "https://threadify.pro",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://threadify.pro/search?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+            description:
+              "Create perfect social media threads for Twitter, Instagram, and LinkedIn. Split text, add hashtags, and optimize your content.",
+            publisher: {
+              "@type": "Organization",
+              name: "Threadify",
+              logo: { "@type": "ImageObject", url: "https://threadify.pro/logo.png" },
+            },
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "Threadify",
+            applicationCategory: "UtilitiesApplication",
+            operatingSystem: "Web",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", ratingCount: "156" },
+          })}
+        </script>
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
