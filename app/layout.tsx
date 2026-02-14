@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -119,6 +119,14 @@ export const metadata: Metadata = {
   }
 }
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -128,10 +136,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
+        {/* Viewport is now handled by Next.js via viewport export - no manual tag needed */}
         <meta name="theme-color" content="#4169E1" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-        
+
         {/* Enhanced SEO Meta Tags */}
         <meta name="author" content="threadify" />
         <meta name="robots" content="index, follow" />

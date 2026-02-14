@@ -4,16 +4,16 @@ import { Button } from "@/components/ui/button"
 import { HowToStructuredData, BreadcrumbStructuredData } from "@/components/structured-data"
 
 export const metadata: Metadata = {
-  title: "Social Media Thread Generator",
+  title: "Free Thread Generator for Twitter, LinkedIn & Threads",
   description:
-    "Split long text into Twitter, Instagram, and LinkedIn threads. Free thread generator — format posts, add hashtags, and optimize for every platform.",
+    "Create perfect social media threads for Twitter, LinkedIn, and Threads. Free tool to split text, optimize posts, and format content.",
   alternates: {
     canonical: "https://threadify.pro/social-media-thread-generator",
   },
   openGraph: {
-    title: "Social Media Thread Generator | threadify",
+    title: "Free Thread Generator for Twitter, LinkedIn & Threads | threadify",
     description:
-      "Split long text into Twitter, Instagram, and LinkedIn threads. Format posts, add hashtags, and optimize engagement.",
+      "Create perfect social media threads. Free tool to split text, optimize posts, and format content for Twitter, LinkedIn, and Threads.",
     url: "https://threadify.pro/social-media-thread-generator",
     type: "website",
     images: [
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Social Media Thread Generator | threadify",
-    description: "Split long text into Twitter, Instagram, and LinkedIn threads. Free thread generator.",
+    title: "Free Thread Generator for Twitter, LinkedIn & Threads",
+    description: "Create perfect social media threads. Free tool to split text, optimize posts, and format content.",
     images: ["/twitter-image.png"],
   },
 }
@@ -44,11 +44,10 @@ function ToolHero() {
     >
       <div className="text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-500 mb-2 sm:mb-3 tracking-tight">
-          Social Media Thread Generator
+          Free Thread Generator for Twitter, LinkedIn & Threads
         </h1>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-4">
-          Format your long text into perfectly-sized posts for Twitter, Threads, and LinkedIn. Split content, optimize
-          character counts, and add hashtags.
+          Create perfect social media threads with our free tool. Split long text into optimized posts for Twitter, LinkedIn, and Threads. Format content, manage character counts, and enhance engagement.
         </p>
         <Link href="#thread-generator" className="inline-block">
           <Button variant="outline" size="sm">
